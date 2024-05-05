@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { toggleMode } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button';
-	import * as Card from '$lib/components/ui/card';
 	import Profile from './pfp.svelte';
 	import Discord from './discord.svelte';
 	import Github from './github.svelte';
@@ -41,15 +40,26 @@
 	>
 		Candy Cat
 	</h2>
-	<p class="leading-7 mt-6 lg:px-28 sm:px-10 text-lg">
-		I love creating random projects most importantly in dark mode. So me and my friend <a
+	<p class="leading-7 mt-6 lg:px-28 sm:px-10 text-xl text-justify">
+		Hello! I'm Candy Cat, a developer with a passion for creating efficient and user-friendly web
+		solutions. With few years of experience in web development, I specialize in <span
+			class="text-red-500 font-semibold">Svelte</span
+		>
+		& <span class="text-blue-500 font-semibold">Tailwind CSS</span>. My goal is to contribute
+		valuable code and innovative ideas to projects that make a difference. I've worked on various
+		projects, including Discord Bot and curruntly working on a sectrect project soon to be open
+		sourse. These experiences have honed my problem-solving skills and taught me the importance of
+		writing clean, maintainable code. I enjoy collaborating with teams to tackle challenges and
+		deliver high-quality solutions. Outside of coding, I like to stay updated with the latest
+		developments in technology and explore new tools that can enhance my productivity. I believe in
+		continuous learning and enjoy experimenting with different technologies to expand my skill set.
+		I mostly work with my friend
+		<a
 			href="https://mud.fretro.com/"
 			target="_blank"
 			class="text-orange-500 underline decoration-dashed underline-offset-4 hover:opacity-75"
 			>@mud</a
-		> started Fretro. We decided to host our projects under a subdomain Fretro.com unlimited subdomains?
-		hummm.. portfolio it is. I am not super talented but i wanted to make a website about my self. It's
-		low key a flex. I am mostly active on Discord if you want to contact me for some reason details below.
+		> to build websites. We started Fretro to share our work to the world.
 	</p>
 
 	<div class="grid lg:grid-cols-2 sm:grid-cols-1">
