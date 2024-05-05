@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { toggleMode } from 'mode-watcher';
+	import { toggleMode, ModeWatcher } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button';
 	import Profile from './pfp.svelte';
 	import Discord from './discord.svelte';
@@ -66,4 +66,6 @@
 		<Discord />
 		<Github />
 	</div>
+
+	<ModeWatcher />
 </div>

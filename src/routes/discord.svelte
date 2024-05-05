@@ -12,10 +12,29 @@
 </script>
 
 <div class="flex justify-center items-center my-5">
-	<Card.Root class="w-[350px] overflow-hidden">
+	<Card.Root class="w-[350px] overflow-hidden relative">
+		<img
+			src="https://i.imgur.com/GczZNPl.gif"
+			alt="Discord Cosmetic"
+			class="absolute w-[350px] opacity-50 pointer-events-none"
+			draggable="false"
+		/>
 		<img src="https://i.imgur.com/mL661SE.gif" class="w-full" alt="Discord Banner" />
 		<div class="flex flex-col items-center py-5">
-			<Profile Image1="https://i.imgur.com/t55pTul.png" Image2="https://i.imgur.com/sNXB99e.gif" />
+			<div class="relative">
+				<img
+					src="https://cdn.discordapp.com/avatar-decoration-presets/a_fed43ab12698df65902ba06727e20c0e.png"
+					alt="Decoration"
+					class="z-10 w-24 absolute pointer-events-none"
+					draggable="false"
+				/>
+				<span class="z-0">
+					<Profile
+						Image1="https://i.imgur.com/t55pTul.png"
+						Image2="https://i.imgur.com/sNXB99e.gif"
+					/>
+				</span>
+			</div>
 			<div class="grid grid-cols-8 place-items-center">
 				<h5 class="mb-1 text-xl font-bold text-gray-900 dark:text-white col-span-4">Candy Cat</h5>
 				<Tooltip.Root>

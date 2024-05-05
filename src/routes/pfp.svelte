@@ -17,6 +17,6 @@
 	src={isHovered ? Image2 : Image1}
 	on:mouseenter={handleMouseEnter}
 	on:mouseleave={handleMouseLeave}
-	class="w-24 h-24 mb-3 rounded-full"
-	alt="ProfilePicture"
+	class="w-24 h-24 rounded-full"
+	alt="Profile"
 />
