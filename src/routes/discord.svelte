@@ -14,7 +14,7 @@
 <div class="flex justify-center items-center my-5">
 	<Card.Root class="w-[350px] overflow-hidden relative">
 		<img
-			src="https://i.imgur.com/GczZNPl.gif"
+			src="https://cdn.discordapp.com/assets/profile_effects/effects/2023-10-11/punk-girl/loop.png"
 			alt="Discord Cosmetic"
 			class="absolute w-[350px] opacity-50 pointer-events-none"
 			draggable="false"
@@ -91,10 +91,15 @@
 			</div>
 			<span class="text-sm text-gray-500 dark:text-gray-400">@mecandycat</span>
 
+			<p class="px-1 text-center pt-1">
+				I was a just a dreamer, chasing stars and good vibes until I fell down my bed & broke my
+				nose...
+			</p>
+
 			<div class="flex mt-4 md:mt-6">
 				<Button on:click={copyDiscord}><Copy class="mr-2 h-4 w-4" />Discord</Button>
 			</div>
 		</div>
-		<div class="bg-violet-600 w-full h-5 blur-xl opacity-50" />
+		<div class="bg-violet-600 w-full h-5 blur-xl opacity-20 dark:opacity-50 animate-pulse" />
 	</Card.Root>
 </div>
