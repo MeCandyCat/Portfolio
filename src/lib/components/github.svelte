@@ -2,7 +2,8 @@
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
-	import Profile from './pfp.svelte';
+
+	import Profile from '$lib/components/pfp.svelte';
 	import Open from 'lucide-svelte/icons/square-arrow-out-up-right';
 
 	async function fetchData(url: string) {
@@ -74,12 +75,17 @@
 					>{contributionsCount}</span
 				>
 				commits and have been working on
-				<span id="repo-count" class="text-sky-500 font-semibold">{repoCount}</span> repositories.<br />
-				<span class="text-slate-500">Ignore old bad-code projects.<span>
+				<span id="repo-count" class="text-sky-500 font-semibold">{repoCount}</span> repositories.<br
+				/>
+				<span class="text-slate-500">Ignore old bad-code projects.</span>
 			</p>
 
 			<div class="flex mt-4 md:mt-6 z-10">
-				<Button href="https://github.com/MeCandyCat/" target="_blank">
+				<Button
+					href="https://github.com/MeCandyCat/"
+					target="_blank"
+					class="transition duration-300 ease-in-out hover:scale-95"
+				>
 					<Open class="mr-2 h-4 w-4" />Github
 				</Button>
 			</div>

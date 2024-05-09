@@ -2,7 +2,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
-	import Profile from './pfp.svelte';
+	import Profile from '$lib/components/pfp.svelte';
 
 	import Copy from 'lucide-svelte/icons/copy';
 
@@ -97,7 +97,9 @@
 			</p>
 
 			<div class="flex mt-4 md:mt-6">
-				<Button on:click={copyDiscord}><Copy class="mr-2 h-4 w-4" />Discord</Button>
+				<Button on:click={copyDiscord} class="transition duration-300 ease-in-out hover:scale-95"
+					><Copy class="mr-2 h-4 w-4" />Discord</Button
+				>
 			</div>
 		</div>
 		<div class="bg-violet-600 w-full h-5 blur-xl opacity-20 dark:opacity-50 animate-pulse" />

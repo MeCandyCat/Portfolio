@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { toggleMode, ModeWatcher } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button';
-	import Profile from './pfp.svelte';
-	import Discord from './discord.svelte';
-	import Github from './github.svelte';
+	import Profile from '$lib/components/pfp.svelte';
+	import Discord from '$lib/components/discord.svelte';
+	import Github from '$lib/components/github.svelte';
+	import Project from '$lib/components/project.svelte';
 
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
@@ -47,7 +48,7 @@
 		>
 		& <span class="text-blue-500 font-semibold">Tailwind CSS</span>. My goal is to contribute
 		valuable code and innovative ideas to projects that make a difference. I've worked on various
-		projects, including Discord Bot and curruntly working on a sectrect project soon to be open
+		projects, including Discord Bot and currently working on a secret project soon to be open
 		sourse. These experiences have honed my problem-solving skills and taught me the importance of
 		writing clean, maintainable code. I enjoy collaborating with teams to tackle challenges and
 		deliver high-quality solutions. Outside of coding, I like to stay updated with the latest
@@ -65,6 +66,15 @@
 	<div class="grid lg:grid-cols-2 sm:grid-cols-1">
 		<Discord />
 		<Github />
+	</div>
+
+	<h1 class="text-center text-xl py-10">— Projects I worked on —</h1>
+
+	<div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center pb-10">
+		<Project username="MeCandyCat" repositoryName="Portfolio" />
+		<Project username="MeCandyCat" repositoryName="LMS" />
+		<Project username="MeCandyCat" repositoryName="LMS-Docs" />
+		<Project username="MeCandyCat" repositoryName="beats-player" />
 	</div>
 
 	<ModeWatcher />
