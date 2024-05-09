@@ -5,23 +5,33 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import { getRepositoryDetails } from '$lib/components/githubutils';
+	import colorsJSON from './colors.json';
+
+	const getLangColor = (lang: string): string => {
+		interface LanguageColors {
+			[key: string]: {
+				color: string | null;
+				url: string | null;
+			};
+		}
+		const colorsData: LanguageColors = colorsJSON;
+		return colorsData[lang].color || '#38bdf8';
+	};
 
 	export let username: string;
 	export let repositoryName: string;
 
-	let repoDetails: {
+
+	interface RepoDetails {
 		name: string;
-		description: string;
-		language: string;
-		stars: number;
-		lastUpdatedDate: string | null;
-	} = {
-		name: '',
-		description: '',
-		language: '',
-		stars: 0,
-		lastUpdatedDate: null
-	};
+		description:string;
+		language:string;
+		stars:number | 0;
+		lastUpdatedDate?: string | null;
+		color?: string | null ;
+	}
+
+	let repoDetails:RepoDetails;
 
 	onMount(async () => {
 		try {
@@ -31,6 +41,8 @@
 			if (repoDetails.lastUpdatedDate) {
 				repoDetails.lastUpdatedDate = formatDateISO8601(repoDetails.lastUpdatedDate);
 			}
+
+			repoDetails.color = getLangColor(repoDetails.language)
 		} catch (error) {
 			console.error('Error fetching repository details:', error);
 		}
@@ -49,15 +61,14 @@
 	<Card.Header class="grid grid-cols-[1fr_110px] items-start gap-4 space-y-0">
 		<div class="space-y-1">
 			<Card.Title>
-				{#if repoDetails.name}
+				{#if repoDetails?.name}
 					{repoDetails.name}
 				{:else}
-				<div class="h-3 animate-pulse bg-gray-300 rounded-full dark:bg-gray-600 w-32"/>
+					<div class="h-3 animate-pulse bg-gray-300 rounded-full dark:bg-gray-600 w-32" />
 				{/if}
-
 			</Card.Title>
 			<Card.Description>
-				{#if repoDetails.description}
+				{#if repoDetails?.description}
 					{repoDetails.description}
 				{:else}
 					<div role="status" class="space-y-3 animate-pulse max-w-lg">
@@ -83,19 +94,19 @@
 	<Card.Content>
 		<div class="flex space-x-4 text-sm text-muted-foreground items-center">
 			<div class="flex items-center">
-				<Circle class="mr-1 h-3 w-3 text-sky-400" />
-				{#if repoDetails.language}
+				<Circle class="mr-1 h-3 w-3" style="color:{repoDetails?.color}" />
+				{#if repoDetails?.language}
 					<p>{repoDetails.language}</p>
 				{:else}
-					<div class="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-24 animate-pulse " />
+					<div class="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-24 animate-pulse" />
 				{/if}
 			</div>
 			<div class="flex items-center">
 				<Star class="mr-1 h-3 w-3" />
-				{repoDetails.stars} stars
+				{repoDetails?.stars || 0} stars
 			</div>
 			<div class="flex items-center">
-				{#if repoDetails.lastUpdatedDate}
+				{#if repoDetails?.lastUpdatedDate}
 					<p>Updated: {repoDetails.lastUpdatedDate}</p>
 				{:else}
 					<p>Updated: <span class="text-slate-500 animate-pulse">Loading...</span></p>

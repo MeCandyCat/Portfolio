@@ -11,7 +11,7 @@
 	};
 </script>
 
-<div class="flex justify-center items-center my-5">
+<div class="flex justify-center items-center">
 	<Card.Root class="w-[350px] overflow-hidden relative">
 		<img
 			src="https://cdn.discordapp.com/assets/profile_effects/effects/2023-10-11/punk-girl/loop.png"

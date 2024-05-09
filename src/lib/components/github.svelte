@@ -51,7 +51,7 @@
 	});
 </script>
 
-<div class="flex justify-center items-center my-5">
+<div class="flex justify-center items-center">
 	<Card.Root class="w-[350px] overflow-hidden relative">
 		<img src="https://i.imgur.com/3Fz3FGO.png" class="w-full" alt="Github Banner" />
 		<img

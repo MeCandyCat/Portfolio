@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { toggleMode, ModeWatcher } from 'mode-watcher';
+	import { toggleMode } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button';
 	import Profile from '$lib/components/pfp.svelte';
 	import Discord from '$lib/components/discord.svelte';
@@ -37,15 +37,14 @@
 		<Profile Image1="https://i.imgur.com/t55pTul.png" Image2="https://i.imgur.com/sNXB99e.gif" />
 	</div>
 	<h2
-		class="-rotate-5 text-center text-8xl font-bold bg-gradient-to-b from-slate-900 dark:from-slate-50 to-violet-600 dark:to-violet-600 bg-clip-text text-transparent pb-24"
+		class="-rotate-5 text-center text-8xl font-bold bg-gradient-to-b from-slate-900 dark:from-slate-50 to-violet-600 dark:to-violet-600 bg-clip-text text-transparent pb-10"
 	>
 		Candy Cat
 	</h2>
-	<p class="leading-7 mt-6 lg:px-28 sm:px-10 text-xl text-justify">
+	<p class="leading-7 pb-10 px-8 text-xl text-justify max-w-screen-xl mx-auto">
 		Hello! I'm Candy Cat, a developer with a passion for creating efficient and user-friendly web
-		solutions. With few years of experience in web development, I specialize in <span
-			class="text-red-500 font-semibold">Svelte</span
-		>
+		solutions. With few years of experience in web development, I specialize in
+		<span class="text-red-500 font-semibold">Svelte</span>
 		& <span class="text-blue-500 font-semibold">Tailwind CSS</span>. My goal is to contribute
 		valuable code and innovative ideas to projects that make a difference. I've worked on various
 		projects, including Discord Bot and currently working on a secret project soon to be open
@@ -63,19 +62,17 @@
 		> to build websites. We started Fretro to share our work to the world.
 	</p>
 
-	<div class="grid lg:grid-cols-2 sm:grid-cols-1">
+	<div class="grid lg:grid-cols-2 sm:grid-cols-1 max-w-screen-lg mx-auto">
 		<Discord />
 		<Github />
 	</div>
 
 	<h1 class="text-center text-xl py-10">— Projects I worked on —</h1>
 
-	<div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 place-items-center pb-10">
+	<div class="flex gap-4 flex-wrap justify-center pb-8 max-w-screen-xl mx-auto">
 		<Project username="MeCandyCat" repositoryName="Portfolio" />
 		<Project username="MeCandyCat" repositoryName="LMS" />
-		<Project username="MeCandyCat" repositoryName="LMS-Docs" />
+		<Project username="MeCandyCat" repositoryName="LMS-Dash" />
 		<Project username="MeCandyCat" repositoryName="beats-player" />
 	</div>
-
-	<ModeWatcher />
 </div>
