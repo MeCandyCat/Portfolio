@@ -51,36 +51,33 @@
 	});
 </script>
 
-<div class="flex justify-center items-center">
-	<Card.Root class="w-[350px] overflow-hidden relative">
-		<img src="https://i.imgur.com/3Fz3FGO.png" class="w-full" alt="Github Banner" />
+<div class="flex items-center justify-center">
+	<Card.Root class="relative w-[350px] overflow-hidden">
+		<img src="banners/github-banner.png" class="w-full" alt="Github Banner" />
 		<img
 			src="https://cdn.discordapp.com/assets/profile_effects/effects/2024-1-18/cyberpunk-uplinkerror/idle.png"
 			alt="Esthetics"
-			class="absolute w-[350px] opacity-20 dark:opacity-50 blur-xl z-0 pointer-events-none"
+			class="pointer-events-none absolute z-0 w-[350px] opacity-20 blur-xl dark:opacity-50"
 			draggable="false"
 		/>
 		<div class="flex flex-col items-center py-5">
-			<Profile
-				Image1="https://avatars.githubusercontent.com/u/116643898?v=4"
-				Image2="https://i.ibb.co/ByyS0hb/discord-avatar-512-J3-RAB.gif"
-			/>
-			<h5 class="mb-1 text-xl font-bold text-gray-900 dark:text-white col-span-4 z-10">
+			<Profile Image1="profile/github.png" Image2="profile/github.gif" />
+			<h5 class="z-10 col-span-4 mb-1 text-xl font-bold text-gray-900 dark:text-white">
 				Candy Cat
 			</h5>
-			<span class="text-sm text-gray-500 dark:text-gray-400 z-10">@mecandycat</span>
+			<span class="z-10 text-sm text-gray-500 dark:text-gray-400">@mecandycat</span>
 
-			<p class="px-1 text-center pt-1 z-10">
-				I have contributed <span id="contributions-count" class="text-sky-500 font-semibold"
+			<p class="z-10 px-1 pt-1 text-center">
+				I have contributed <span id="contributions-count" class="font-semibold text-sky-500"
 					>{contributionsCount}</span
 				>
 				commits and have been working on
-				<span id="repo-count" class="text-sky-500 font-semibold">{repoCount}</span> repositories.<br
+				<span id="repo-count" class="font-semibold text-sky-500">{repoCount}</span> repositories.<br
 				/>
 				<span class="text-slate-500">Ignore old bad-code projects.</span>
 			</p>
 
-			<div class="flex mt-4 md:mt-6 z-10">
+			<div class="z-10 mt-4 flex md:mt-6">
 				<Button
 					href="https://github.com/MeCandyCat/"
 					target="_blank"
@@ -90,6 +87,6 @@
 				</Button>
 			</div>
 		</div>
-		<div class="bg-sky-600 w-full h-5 blur-xl opacity-20 dark:opacity-50 animate-pulse" />
+		<div class="h-5 w-full animate-pulse bg-sky-600 opacity-20 blur-xl dark:opacity-50" />
 	</Card.Root>
 </div>

@@ -11,32 +11,29 @@
 	};
 </script>
 
-<div class="flex justify-center items-center">
-	<Card.Root class="w-[350px] overflow-hidden relative">
+<div class="flex items-center justify-center">
+	<Card.Root class="relative w-[350px] overflow-hidden">
 		<img
 			src="https://cdn.discordapp.com/assets/profile_effects/effects/2023-10-11/punk-girl/loop.png"
 			alt="Discord Cosmetic"
-			class="absolute w-[350px] opacity-50 pointer-events-none"
+			class="pointer-events-none absolute w-[350px] opacity-50"
 			draggable="false"
 		/>
-		<img src="https://i.imgur.com/mL661SE.gif" class="w-full" alt="Discord Banner" />
+		<img src="banners/Pixel-sky-discord.gif" class="w-full" alt="Discord Banner" />
 		<div class="flex flex-col items-center py-5">
 			<div class="relative">
 				<img
 					src="https://cdn.discordapp.com/avatar-decoration-presets/a_fed43ab12698df65902ba06727e20c0e.png"
 					alt="Decoration"
-					class="z-10 w-24 absolute pointer-events-none"
+					class="pointer-events-none absolute z-10 w-24"
 					draggable="false"
 				/>
 				<span class="z-0">
-					<Profile
-						Image1="https://i.imgur.com/t55pTul.png"
-						Image2="https://i.imgur.com/sNXB99e.gif"
-					/>
+					<Profile Image1="profile/discord.png" Image2="profile/discord.gif" />
 				</span>
 			</div>
 			<div class="grid grid-cols-8 place-items-center">
-				<h5 class="mb-1 text-xl font-bold text-gray-900 dark:text-white col-span-4">Candy Cat</h5>
+				<h5 class="col-span-4 mb-1 text-xl font-bold text-gray-900 dark:text-white">Candy Cat</h5>
 				<Tooltip.Root>
 					<Tooltip.Trigger
 						><img
@@ -91,17 +88,17 @@
 			</div>
 			<span class="text-sm text-gray-500 dark:text-gray-400">@mecandycat</span>
 
-			<p class="px-1 text-center pt-1">
+			<p class="px-1 pt-1 text-center">
 				I was a just a dreamer, chasing stars and good vibes until I fell down my bed & broke my
 				nose...
 			</p>
 
-			<div class="flex mt-4 md:mt-6">
+			<div class="mt-4 flex md:mt-6">
 				<Button on:click={copyDiscord} class="transition duration-300 ease-in-out hover:scale-95"
 					><Copy class="mr-2 h-4 w-4" />Discord</Button
 				>
 			</div>
 		</div>
-		<div class="bg-violet-600 w-full h-5 blur-xl opacity-20 dark:opacity-50 animate-pulse" />
+		<div class="h-5 w-full animate-pulse bg-violet-600 opacity-20 blur-xl dark:opacity-50" />
 	</Card.Root>
 </div>

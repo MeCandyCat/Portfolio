@@ -21,17 +21,16 @@
 	export let username: string;
 	export let repositoryName: string;
 
-
 	interface RepoDetails {
 		name: string;
-		description:string;
-		language:string;
-		stars:number | 0;
+		description: string;
+		language: string;
+		stars: number | 0;
 		lastUpdatedDate?: string | null;
-		color?: string | null ;
+		color?: string | null;
 	}
 
-	let repoDetails:RepoDetails;
+	let repoDetails: RepoDetails;
 
 	onMount(async () => {
 		try {
@@ -42,7 +41,7 @@
 				repoDetails.lastUpdatedDate = formatDateISO8601(repoDetails.lastUpdatedDate);
 			}
 
-			repoDetails.color = getLangColor(repoDetails.language)
+			repoDetails.color = getLangColor(repoDetails.language);
 		} catch (error) {
 			console.error('Error fetching repository details:', error);
 		}
@@ -64,18 +63,18 @@
 				{#if repoDetails?.name}
 					{repoDetails.name}
 				{:else}
-					<div class="h-3 animate-pulse bg-gray-300 rounded-full dark:bg-gray-600 w-32" />
+					<div class="h-3 w-32 animate-pulse rounded-full bg-gray-300 dark:bg-gray-600" />
 				{/if}
 			</Card.Title>
 			<Card.Description>
 				{#if repoDetails?.description}
 					{repoDetails.description}
 				{:else}
-					<div role="status" class="space-y-3 animate-pulse max-w-lg">
-						<div class="flex items-center w-full">
-							<div class="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-32"></div>
-							<div class="h-3 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-24"></div>
-							<div class="h-3 ms-2 bg-gray-300 rounded-full dark:bg-gray-600 w-full"></div>
+					<div role="status" class="max-w-lg animate-pulse space-y-3">
+						<div class="flex w-full items-center">
+							<div class="h-3 w-32 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+							<div class="ms-2 h-3 w-24 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+							<div class="ms-2 h-3 w-full rounded-full bg-gray-300 dark:bg-gray-600"></div>
 						</div>
 					</div>
 				{/if}
@@ -92,13 +91,13 @@
 		</Button>
 	</Card.Header>
 	<Card.Content>
-		<div class="flex space-x-4 text-sm text-muted-foreground items-center">
+		<div class="flex items-center space-x-4 text-sm text-muted-foreground">
 			<div class="flex items-center">
 				<Circle class="mr-1 h-3 w-3" style="color:{repoDetails?.color}" />
 				{#if repoDetails?.language}
 					<p>{repoDetails.language}</p>
 				{:else}
-					<div class="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-24 animate-pulse" />
+					<div class="h-3 w-24 animate-pulse rounded-full bg-gray-200 dark:bg-gray-700" />
 				{/if}
 			</div>
 			<div class="flex items-center">
@@ -109,7 +108,7 @@
 				{#if repoDetails?.lastUpdatedDate}
 					<p>Updated: {repoDetails.lastUpdatedDate}</p>
 				{:else}
-					<p>Updated: <span class="text-slate-500 animate-pulse">Loading...</span></p>
+					<p>Updated: <span class="animate-pulse text-slate-500">Loading...</span></p>
 				{/if}
 			</div>
 		</div>

@@ -5,15 +5,17 @@
 	import Discord from '$lib/components/discord.svelte';
 	import Github from '$lib/components/github.svelte';
 	import Project from '$lib/components/project.svelte';
+	import Blog from '$lib/components/blog.svelte';
 
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
+	import News from 'lucide-svelte/icons/newspaper';
 </script>
 
 <div class="overflow-x-hidden">
-	<div class="w-full h-10 bg-gradient-to-br from-violet-600 to-indigo-600 blur-3xl static" />
-	<div class="absolute top-0">
-		<Button on:click={toggleMode} variant="outline" size="icon" class="m-5">
+	<div class="static h-10 w-full bg-gradient-to-br from-violet-600 to-indigo-600 blur-3xl" />
+	<div class="absolute top-0 m-5 flex items-center gap-3">
+		<Button on:click={toggleMode} variant="outline" size="icon">
 			<Sun
 				class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
 			/>
@@ -22,30 +24,31 @@
 			/>
 			<span class="sr-only">Toggle theme</span>
 		</Button>
+		<Button variant="outline" href="/blog" size="icon"><News class="h-4 w-4" /></Button>
 	</div>
 	<h1
-		class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center pt-10 bg-gradient-to-br from-violet-600 to-indigo-600 bg-clip-text text-transparent"
+		class="scroll-m-20 bg-gradient-to-br from-violet-600 to-indigo-600 bg-clip-text pt-10 text-center text-4xl font-extrabold tracking-tight text-transparent lg:text-5xl"
 	>
-		Hello World
+		Hello, World!
 	</h1>
 	<h1
-		class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center pt-10 pr-24 pb-4"
+		class="scroll-m-20 pb-4 pr-24 pt-10 text-center text-4xl font-extrabold tracking-tight lg:text-5xl"
 	>
 		I am
 	</h1>
-	<div class="flex justify-center items-center">
-		<Profile Image1="https://i.imgur.com/t55pTul.png" Image2="https://i.imgur.com/sNXB99e.gif" />
+	<div class="flex items-center justify-center">
+		<Profile Image1="profile/discord.png" Image2="profile/discord.gif" />
 	</div>
 	<h2
-		class="-rotate-5 text-center text-8xl font-bold bg-gradient-to-b from-slate-900 dark:from-slate-50 to-violet-600 dark:to-violet-600 bg-clip-text text-transparent pb-10"
+		class="-rotate-5 bg-gradient-to-b from-slate-900 to-violet-600 bg-clip-text pb-10 text-center text-8xl font-bold text-transparent dark:from-slate-50 dark:to-violet-600"
 	>
 		Candy Cat
 	</h2>
-	<p class="leading-7 pb-10 px-8 text-xl text-justify max-w-screen-xl mx-auto">
+	<p class="mx-auto max-w-screen-xl px-8 pb-10 text-justify text-xl leading-7">
 		Hello! I'm Candy Cat, a developer with a passion for creating efficient and user-friendly web
 		solutions. With few years of experience in web development, I specialize in
-		<span class="text-red-500 font-semibold">Svelte</span>
-		& <span class="text-blue-500 font-semibold">Tailwind CSS</span>. My goal is to contribute
+		<span class="font-semibold text-red-500">Svelte</span>
+		& <span class="font-semibold text-blue-500">Tailwind CSS</span>. My goal is to contribute
 		valuable code and innovative ideas to projects that make a difference. I've worked on various
 		projects, including Discord Bot and currently working on a secret project soon to be open
 		sourse. These experiences have honed my problem-solving skills and taught me the importance of
@@ -62,17 +65,19 @@
 		> to build websites. We started Fretro to share our work to the world.
 	</p>
 
-	<div class="grid lg:grid-cols-2 sm:grid-cols-1 max-w-screen-lg mx-auto">
+	<div class="mx-auto grid max-w-screen-lg gap-1 sm:grid-cols-1 lg:grid-cols-2">
 		<Discord />
 		<Github />
 	</div>
 
-	<h1 class="text-center text-xl py-10">— Projects I worked on —</h1>
+	<h1 class="py-10 text-center text-xl">— Projects I worked on —</h1>
 
-	<div class="flex gap-4 flex-wrap justify-center pb-8 max-w-screen-xl mx-auto">
+	<div class="mx-auto flex max-w-screen-xl flex-wrap justify-center gap-4 pb-8">
 		<Project username="MeCandyCat" repositoryName="Portfolio" />
 		<Project username="MeCandyCat" repositoryName="LMS" />
 		<Project username="MeCandyCat" repositoryName="LMS-Dash" />
 		<Project username="MeCandyCat" repositoryName="beats-player" />
 	</div>
+
+	<Blog />
 </div>
