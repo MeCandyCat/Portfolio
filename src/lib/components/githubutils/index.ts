@@ -11,7 +11,7 @@ export async function getRepositoryDetails(
 	repositoryName: string
 ): Promise<RepositoryDetails> {
 	try {
-		const response = await fetch(`https://api.githubX.com/repos/${username}/${repositoryName}`);
+		const response = await fetch(`https://api.github.com/repos/${username}/${repositoryName}`);
 
 		if (!response.ok) {
 			throw new Error(
