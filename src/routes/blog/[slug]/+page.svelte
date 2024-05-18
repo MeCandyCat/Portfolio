@@ -25,12 +25,12 @@
 	<meta content={data.banner} property="og:image" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content={data.banner} />
-	<meta content="#7b1cff" data-react-helmet="true" name="theme-color" />
+	<meta content="#6141e8" data-react-helmet="true" name="theme-color" />
 </svelte:head>
 
 <div class="progress fixed bottom-0 h-1 w-full scale-0 rounded-full bg-indigo-500" />
 <div class="mx-auto max-w-screen-lg px-8">
-	<Button variant="outline" href="/blog" class="mt-4"><Arrow class="h-4 w-4" /></Button>
+	<Button variant="outline" href="/blog" class="my-4"><Arrow class="h-4 w-4" /></Button>
 	<h1 class="text-6xl font-bold text-violet-500">{data.title}</h1>
 
 	<p class="pb-4 text-slate-500">Published: {data.date}</p>

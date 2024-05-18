@@ -12,6 +12,14 @@
 	import News from 'lucide-svelte/icons/newspaper';
 </script>
 
+<!-- Embed Card Details -->
+<meta content="Candy Cat Portfolio" property="og:title" />
+<meta content="A website to show i exsist." property="og:description" />
+<meta content="banners/hello-world-embed.png" property="og:image" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="banners/hello-world-embed.png" />
+<meta content="#6141e8" data-react-helmet="true" name="theme-color" />
+
 <div class="overflow-x-hidden">
 	<div class="static h-10 w-full bg-gradient-to-br from-violet-600 to-indigo-600 blur-3xl" />
 	<div class="absolute top-0 m-5 flex items-center gap-3">

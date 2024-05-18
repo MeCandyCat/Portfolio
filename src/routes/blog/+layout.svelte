@@ -21,7 +21,9 @@
 		</Button>
 		<Button variant="outline" href="/" size="icon"><Home class="h-4 w-4" /></Button>
 	</div>
-	<h1 class="text-center text-4xl font-bold underline decoration-indigo-500 underline-offset-4">
+	<h1
+		class="mt-5 text-center text-4xl font-bold underline decoration-indigo-500 underline-offset-4"
+	>
 		C@ BLOG
 	</h1>
 </header>
