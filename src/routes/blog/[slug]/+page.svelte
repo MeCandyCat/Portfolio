@@ -16,12 +16,11 @@
 
 <svelte:head>
 	<title>{data.title}</title>
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content={data.title} />
 
 	<!-- Embed Card Details -->
-	<meta content="C@ Blog | {data.title}" property="og:title" />
-	<meta content="Candy Cat's blog." property="og:description" />
+	<meta property="og:type" content="article" />
+	<meta content="C@ Blog" property="og:title" />
+	<meta content="{data.title}" property="og:description" />
 	<meta content={data.banner} property="og:image" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content={data.banner} />

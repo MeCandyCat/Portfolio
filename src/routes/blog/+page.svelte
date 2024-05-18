@@ -17,11 +17,12 @@
 	<title>C@ Blog</title>
 
 	<!-- Embed Card Details -->
+	<meta property="og:type" content="article" />
 	<meta content="C@ Blog" property="og:title" />
 	<meta content="Candy Cat's blog." property="og:description" />
-	<meta content="banners/cat-blog.png" property="og:image" />
+	<meta content="/banners/cat-blog.png" property="og:image" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:image" content="banners/cat-blog.png" />
+	<meta name="twitter:image" content="/banners/cat-blog.png" />
 	<meta content="#6b30ff" data-react-helmet="true" name="theme-color" />
 </svelte:head>
 

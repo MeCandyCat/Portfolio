@@ -15,9 +15,9 @@
 <!-- Embed Card Details -->
 <meta content="Candy Cat Portfolio" property="og:title" />
 <meta content="A website to show i exsist." property="og:description" />
-<meta content="banners/hello-world-embed.png" property="og:image" />
+<meta content="/banners/hello-world-embed.png" property="og:image" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="banners/hello-world-embed.png" />
+<meta name="twitter:image" content="/banners/hello-world-embed.png" />
 <meta content="#6141e8" data-react-helmet="true" name="theme-color" />
 
 <div class="overflow-x-hidden">
