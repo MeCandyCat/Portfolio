@@ -5,9 +5,9 @@
     import Profile from '$lib/components/pfp.svelte';
     import Play from 'lucide-svelte/icons/youtube';
 
-    let subscriberCount: string | null = null;
-    let videoCount: string | null = null;
-    let totalViewCount: string | null = null;
+    let subscriberCount: string | null = '0';
+    let videoCount: string | null = '0';
+    let totalViewCount: string | null = '0';
 
     const apiKey = process.env.VITE_YOUTUBE_API_KEY;
     const channelId = 'UC1kedgM-bFz56ph6J7GTkbA';
