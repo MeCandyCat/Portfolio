@@ -4,6 +4,7 @@
 	import Profile from '$lib/components/pfp.svelte';
 	import Discord from '$lib/components/discord.svelte';
 	import Github from '$lib/components/github.svelte';
+	import Youtube from '$lib/components/youtube.svelte';
 	import Project from '$lib/components/project.svelte';
 	import Blog from '$lib/components/blog.svelte';
 
@@ -73,9 +74,10 @@
 		> to build websites. We started Fretro to share our work to the world.
 	</p>
 
-	<div class="mx-auto grid max-w-screen-lg gap-1 sm:grid-cols-1 lg:grid-cols-2">
+	<div class="mx-auto grid max-w-screen-lg gap-4 sm:grid-cols-1 lg:grid-cols-3">
 		<Discord />
 		<Github />
+		<Youtube />
 	</div>
 
 	<h1 class="py-10 text-center text-xl">— Projects I worked on —</h1>
