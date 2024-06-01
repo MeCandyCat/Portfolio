@@ -6,6 +6,7 @@
 	import Github from '$lib/components/github.svelte';
 	import Youtube from '$lib/components/youtube.svelte';
 	import Project from '$lib/components/project.svelte';
+	import Tool from '$lib/components/tool.svelte';
 	import Blog from '$lib/components/blog.svelte';
 
 	import Sun from 'lucide-svelte/icons/sun';
@@ -14,12 +15,16 @@
 </script>
 
 <!-- Embed Card Details -->
-<meta content="Candy Cat Portfolio" property="og:title" />
-<meta content="A website to show i exsist." property="og:description" />
-<meta content="/banners/hello-world-embed.png" property="og:image" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="/banners/hello-world-embed.png" />
-<meta content="#6141e8" data-react-helmet="true" name="theme-color" />
+<svelte:head>
+	<title>Candy Cat</title>
+
+	<meta content="Candy Cat Portfolio" property="og:title" />
+	<meta content="A website to show i exsist." property="og:description" />
+	<meta content="/banners/hello-world-embed.png" property="og:image" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="/banners/hello-world-embed.png" />
+	<meta content="#6141e8" data-react-helmet="true" name="theme-color" />
+</svelte:head>
 
 <div class="overflow-x-hidden">
 	<div class="static h-10 w-full bg-gradient-to-br from-violet-600 to-indigo-600 blur-3xl" />
@@ -89,5 +94,56 @@
 		<Project username="MeCandyCat" repositoryName="beats-player" />
 	</div>
 
+	<h1 class="py-10 text-center text-xl">— Tools I have used —</h1>
+	<div class="flex flex-wrap justify-around pb-8">
+		<Tool
+			name="Adobe Photoshop"
+			icon="/icons/PhotoShop.svg"
+			badgeText="App"
+			description="A professional image editing software"
+		/>
+		<Tool
+			name="Adobe Premire"
+			icon="/icons/PremirePro.svg"
+			badgeText="App"
+			description="A professional video editing software"
+		/>
+		<Tool
+			name="SvelteKit"
+			icon="/icons/Svelte.svg"
+			badgeText="Library"
+			description="A JavaScript Framework"
+		/>
+		<Tool
+			name="React"
+			icon="/icons/React.svg"
+			badgeText="Library"
+			description="A JavaScript Framework."
+		/>
+		<Tool
+			name="NextJS"
+			icon="/icons/NextJS.svg"
+			badgeText="Library"
+			description="A React Framework."
+		/>
+		<Tool
+			name="Tailwind Css"
+			icon="/icons/TailwindCss.svg"
+			badgeText="Library"
+			description="A utility-first CSS Framework."
+		/>
+		<Tool
+			name="Discord JS"
+			icon="/icons/DiscordJS.svg"
+			badgeText="Library"
+			description="Haddle Discord API to create Discord Bots."
+		/>
+		<Tool
+			name="Git"
+			icon="/icons/Git.svg"
+			badgeText="Other"
+			description="Version control system."
+		/>
+	</div>
 	<Blog />
 </div>

@@ -20,6 +20,12 @@
 			draggable="false"
 		/>
 		<img src="banners/Pixel-sky-discord.gif" class="w-full" alt="Discord Banner" />
+		<img
+			src="https://cdn.discordapp.com/assets/profile_effects/effects/2023-10-11/punk-girl/intro.png"
+			alt="Esthetics"
+			class="pointer-events-none absolute z-0 w-[350px] opacity-15 blur-xl dark:opacity-25"
+			draggable="false"
+		/>
 		<div class="flex flex-col items-center py-5">
 			<div class="relative">
 				<img
@@ -32,7 +38,7 @@
 					<Profile Image1="profile/discord.png" Image2="profile/discord.gif" />
 				</span>
 			</div>
-			<div class="grid grid-cols-8 place-items-center">
+			<div class="z-10 grid grid-cols-8 place-items-center">
 				<h5 class="col-span-4 mb-1 text-xl font-bold text-gray-900 dark:text-white">Candy Cat</h5>
 				<Tooltip.Root>
 					<Tooltip.Trigger
@@ -86,14 +92,14 @@
 					</Tooltip.Content>
 				</Tooltip.Root>
 			</div>
-			<span class="text-sm text-gray-500 dark:text-gray-400">@mecandycat</span>
+			<span class="z-10 text-sm text-gray-500 dark:text-gray-400">@mecandycat</span>
 
-			<p class="px-1 pt-1 text-center">
+			<p class="z-10 px-1 pt-1 text-center">
 				I was a just a dreamer, chasing stars and good vibes until I fell down my bed & broke my
 				nose...
 			</p>
 
-			<div class="mt-4 flex md:mt-6">
+			<div class="z-10 mt-4 flex md:mt-6">
 				<Button on:click={copyDiscord} class="transition duration-300 ease-in-out hover:scale-95"
 					><Copy class="mr-2 h-4 w-4" />Discord</Button
 				>

@@ -20,7 +20,7 @@
 	<!-- Embed Card Details -->
 	<meta property="og:type" content="article" />
 	<meta content="C@ Blog" property="og:title" />
-	<meta content="{data.title}" property="og:description" />
+	<meta content={data.title} property="og:description" />
 	<meta content={data.banner} property="og:image" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content={data.banner} />
