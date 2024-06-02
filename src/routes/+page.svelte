@@ -100,19 +100,19 @@
 			name="Adobe Photoshop"
 			icon="/icons/PhotoShop.svg"
 			badgeText="App"
-			description="A professional image editing software"
+			description="A professional image editing software."
 		/>
 		<Tool
 			name="Adobe Premire"
 			icon="/icons/PremirePro.svg"
 			badgeText="App"
-			description="A professional video editing software"
+			description="A professional video editing software."
 		/>
 		<Tool
 			name="SvelteKit"
 			icon="/icons/Svelte.svg"
 			badgeText="Library"
-			description="A JavaScript Framework"
+			description="A JavaScript Framework."
 		/>
 		<Tool
 			name="React"
@@ -120,12 +120,16 @@
 			badgeText="Library"
 			description="A JavaScript Framework."
 		/>
+		<div class="group">
+		<div class="dark:prose-img:invert prose-img:opacity-85 dark:prose-img:opacity-75 group-hover:prose-img:opacity-100">
 		<Tool
 			name="NextJS"
 			icon="/icons/NextJS.svg"
 			badgeText="Library"
 			description="A React Framework."
 		/>
+		</div>
+		</div>
 		<Tool
 			name="Tailwind Css"
 			icon="/icons/TailwindCss.svg"
