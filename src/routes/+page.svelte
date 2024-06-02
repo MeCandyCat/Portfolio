@@ -121,14 +121,16 @@
 			description="A JavaScript Framework."
 		/>
 		<div class="group">
-		<div class="dark:prose-img:invert prose-img:opacity-85 dark:prose-img:opacity-75 group-hover:prose-img:opacity-100">
-		<Tool
-			name="NextJS"
-			icon="/icons/NextJS.svg"
-			badgeText="Library"
-			description="A React Framework."
-		/>
-		</div>
+			<div
+				class="prose-img:opacity-85 group-hover:prose-img:opacity-100 dark:prose-img:opacity-75 dark:prose-img:invert"
+			>
+				<Tool
+					name="NextJS"
+					icon="/icons/NextJS.svg"
+					badgeText="Library"
+					description="A React Framework."
+				/>
+			</div>
 		</div>
 		<Tool
 			name="Tailwind Css"
