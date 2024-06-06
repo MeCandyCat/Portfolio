@@ -1,19 +1,35 @@
+import type { Post } from '$lib/types';
 import type { RequestHandler } from './$types';
+
+export const prerender = true
 
 const site = 'https://candycat.fretro.com'; // change this to reflect your domain
 const staticPages: string[] = ['/', '/blog']; // populate this with all the static slugs
 
-const apiEndpoint = 'https://candycat.fretro.com/api/posts'; // API endpoint for blog posts
+async function getPosts() {
+  let posts: Post[] = [];
 
-// Define the function to fetch blog posts
-const fetchBlogPosts = async (): Promise<{ slug: string, published: boolean }[]> => {
-  const response = await fetch(apiEndpoint);
-  const posts: { slug: string, published: boolean }[] = await response.json();
-  return posts.filter((post) => post.published); // only include published posts
-};
+  const paths = import.meta.glob('/src/routes/blog/posts/*.md', { eager: true });
 
-export const GET: RequestHandler = async ({ url }) => {
-  const blogPosts = await fetchBlogPosts();
+  for (const path in paths) {
+      const file = paths[path];
+      const slug = '/blog/' + path.split('/').at(-1)?.replace('.md', '');
+      console.log();
+      if (file && typeof file === 'object' && 'metadata' in file && slug) {
+          const metadata = file.metadata as Omit<Post, 'slug'>;
+          const post = { ...metadata, slug } satisfies Post;
+          post.published && posts.push(post);
+      }
+  }
+
+  posts = posts.sort(
+      (first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
+  );
+
+  return posts;
+}
+export const GET: RequestHandler = async () => {
+  const blogPosts = await getPosts();
 
   // Extract slugs from blog posts
   const blogPages = blogPosts.map((post) => post.slug);
