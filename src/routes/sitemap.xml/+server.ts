@@ -5,15 +5,18 @@ const staticPages: string[] = ['/', '/blog']; // populate this with all the stat
 
 const apiEndpoint = 'https://candycat.fretro.com/api/posts'; // API endpoint for blog posts
 
-export const GET: RequestHandler = async ({ url }) => {
+// Define the function to fetch blog posts
+const fetchBlogPosts = async (): Promise<{ slug: string, published: boolean }[]> => {
   const response = await fetch(apiEndpoint);
   const posts: { slug: string, published: boolean }[] = await response.json();
+  return posts.filter((post) => post.published); // only include published posts
+};
 
-  // Extract slugs from posts
-  const blogPages = posts
-    .filter((post) => post.published) // only include published posts
-    .map((post) => post.slug);
+export const GET: RequestHandler = async ({ url }) => {
+  const blogPosts = await fetchBlogPosts();
 
+  // Extract slugs from blog posts
+  const blogPages = blogPosts.map((post) => post.slug);
   const pages = [...staticPages, ...blogPages];
 
   const body = sitemap(pages);
@@ -36,12 +39,12 @@ const sitemap = (pages: string[]) => `<?xml version="1.0" encoding="UTF-8" ?>
     .map((page) => {
       const priority = page === '/' || page === '/blog' ? '1.0' : '0.5';
       return `
-    <url>
-      <loc>${site}${page}</loc>
-      <changefreq>monthly</changefreq>
-      <priority>${priority}</priority>
-    </url>
-    `;
+  <url>
+    <loc>${site}${page}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>${priority}</priority>
+  </url>
+  `;
     })
     .join('')}
 </urlset>`;
