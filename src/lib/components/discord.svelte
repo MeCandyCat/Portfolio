@@ -2,12 +2,21 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
+	import { toast } from 'svelte-sonner';
 	import Profile from '$lib/components/pfp.svelte';
 
 	import Copy from 'lucide-svelte/icons/copy';
 
 	const copyDiscord = async () => {
-		await navigator.clipboard.writeText(`mecandycat`);
+		try {
+			await navigator.clipboard.writeText(`mecandycat`);
+			toast.success('Discord Username Copied!', {
+				description: 'mecandycat'
+			});
+		} catch (error) {
+			console.error('Error copying to clipboard:', error);
+			toast.error('Failed to copy to clipboard');
+		}
 	};
 </script>
 
