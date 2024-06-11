@@ -4,6 +4,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import Profile from '$lib/components/pfp.svelte';
 	import Play from 'lucide-svelte/icons/youtube';
+	import { animate } from 'motion';
 
 	let subscriberCount: string | null = '0';
 	let videoCount: string | null = '0';
@@ -20,12 +21,22 @@
 			if (data.items && data.items.length > 0) {
 				const statistics = data.items[0].statistics;
 
-				subscriberCount = statistics.subscriberCount;
-				videoCount = statistics.videoCount;
-				totalViewCount = statistics.viewCount;
+				animateCount('subscriberCount', statistics.subscriberCount);
+				animateCount('videoCount', statistics.videoCount);
+				animateCount('totalViewCount', statistics.viewCount);
 			}
 		} catch (error) {
 			console.error('Error fetching channel data:', error);
+		}
+	}
+
+	function animateCount(id: string, value: string): void {
+		const element = document.getElementById(id);
+		if (element) {
+			animate(
+				progress => element.innerText = Math.round(progress * parseInt(value)).toLocaleString(),
+				{ duration: 2, easing: 'ease-out' }
+			);
 		}
 	}
 
@@ -57,9 +68,9 @@
 			<span class="z-10 text-sm text-gray-500 dark:text-gray-400">@candycatmc</span>
 
 			<p class="z-10 px-1 pt-1 text-center">
-				I have posted <span class="font-semibold text-sky-500">{videoCount}</span> videos and gained
-				<span class="font-semibold text-sky-500">{subscriberCount}</span> subscribers. Total
-				<span class="font-semibold text-sky-500">{totalViewCount}</span> views.<br />
+				I have posted <span id="videoCount" class="font-semibold text-sky-500">{videoCount}</span> videos and gained
+				<span id="subscriberCount" class="font-semibold text-sky-500">{subscriberCount}</span> subscribers. Total
+				<span id="totalViewCount" class="font-semibold text-sky-500">{totalViewCount}</span> views.<br />
 				<span class="text-slate-500">Currently inactive.</span>
 			</p>
 

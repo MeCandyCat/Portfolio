@@ -6,11 +6,13 @@
 	export let icon;
 	export let description;
 	export let badgeText;
-
+	export let customStyle = '';
 	const getBadgeColor = (/** @type {string} */ text) => {
 		switch (text.toLowerCase()) {
 			case 'app':
 				return 'bg-blue-500 hover:bg-blue-600';
+			case 'language':
+				return 'bg-cyan-500 hover:bg-cyan-600';
 			case 'library':
 				return 'bg-green-500 hover:bg-green-600';
 			default:
@@ -19,9 +21,9 @@
 	};
 </script>
 
-<Card.Root class="group relative m-2 flex items-center p-4 shadow-sm">
+<Card.Root class="relative m-2 flex items-center p-4 shadow-sm {customStyle}">
 	<img
-		class="mr-4 h-12 w-12 grayscale transition duration-300 ease-in-out group-hover:grayscale-0"
+		class="mr-4 h-12 w-12"
 		src={icon}
 		alt="{name} icon"
 	/>

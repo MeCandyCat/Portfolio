@@ -6,12 +6,19 @@
 	import Github from '$lib/components/github.svelte';
 	import Youtube from '$lib/components/youtube.svelte';
 	import Project from '$lib/components/project.svelte';
-	import Tool from '$lib/components/tool.svelte';
+	import ToolSection from '$lib/components/toolSection.svelte';
 	import Blog from '$lib/components/blog.svelte';
 
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
 	import News from 'lucide-svelte/icons/newspaper';
+
+	import { animate } from 'motion';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		animate('#hero-text', { transform: 'rotate(-5deg)' }, { duration: 0.5 });
+	});
 </script>
 
 <!-- Embed Card Details -->
@@ -54,7 +61,7 @@
 		<Profile Image1="profile/discord.png" Image2="profile/discord.gif" />
 	</div>
 	<h2
-		class="-rotate-5 bg-gradient-to-b from-slate-900 to-violet-600 bg-clip-text pb-10 text-center text-8xl font-bold text-transparent dark:from-slate-50 dark:to-violet-600"
+		class="bg-gradient-to-b from-slate-900 to-violet-600 bg-clip-text pb-10 text-center text-8xl font-bold text-transparent dark:from-slate-50 dark:to-violet-600" id="hero-text"
 	>
 		Candy Cat
 	</h2>
@@ -95,61 +102,7 @@
 	</div>
 
 	<h1 class="py-10 text-center text-xl">— Tools I have used —</h1>
-	<div class="flex flex-wrap justify-around pb-8">
-		<Tool
-			name="Adobe Photoshop"
-			icon="/icons/PhotoShop.svg"
-			badgeText="App"
-			description="A professional image editing software."
-		/>
-		<Tool
-			name="Adobe Premire"
-			icon="/icons/PremirePro.svg"
-			badgeText="App"
-			description="A professional video editing software."
-		/>
-		<Tool
-			name="SvelteKit"
-			icon="/icons/Svelte.svg"
-			badgeText="Library"
-			description="A JavaScript Framework."
-		/>
-		<Tool
-			name="React"
-			icon="/icons/React.svg"
-			badgeText="Library"
-			description="A JavaScript Framework."
-		/>
-		<div class="group">
-			<div
-				class="prose-img:opacity-85 group-hover:prose-img:opacity-100 dark:prose-img:opacity-75 dark:prose-img:invert"
-			>
-				<Tool
-					name="NextJS"
-					icon="/icons/NextJS.svg"
-					badgeText="Library"
-					description="A React Framework."
-				/>
-			</div>
-		</div>
-		<Tool
-			name="Tailwind Css"
-			icon="/icons/TailwindCss.svg"
-			badgeText="Library"
-			description="A utility-first CSS Framework."
-		/>
-		<Tool
-			name="Discord JS"
-			icon="/icons/DiscordJS.svg"
-			badgeText="Library"
-			description="Haddle Discord API to create Discord Bots."
-		/>
-		<Tool
-			name="Git"
-			icon="/icons/Git.svg"
-			badgeText="Other"
-			description="Version control system."
-		/>
-	</div>
+
+	<ToolSection />
 	<Blog />
 </div>

@@ -2,9 +2,9 @@
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
-
 	import Profile from '$lib/components/pfp.svelte';
 	import Open from 'lucide-svelte/icons/square-arrow-out-up-right';
+	import { animate } from 'motion';
 
 	async function fetchData(url: string) {
 		try {
@@ -44,10 +44,23 @@
 	let contributionsCount = '0';
 	let repoCount = '0';
 
+	function animateCount(id: string, value: string): void {
+		const element = document.getElementById(id);
+		if (element) {
+			animate(
+				progress => element.innerText = Math.round(progress * parseInt(value)).toLocaleString(),
+				{ duration: 2, easing: 'ease-out' }
+			);
+		}
+	}
+
 	onMount(async () => {
 		const username = 'mecandycat'; // GitHub username
-		contributionsCount = await fetchContributionsCount(username);
-		repoCount = await fetchRepoCount(username);
+		const contributions = await fetchContributionsCount(username);
+		const repos = await fetchRepoCount(username);
+
+		animateCount('contributions-count', contributions);
+		animateCount('repo-count', repos);
 	});
 </script>
 
