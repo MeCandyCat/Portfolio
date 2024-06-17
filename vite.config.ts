@@ -8,5 +8,10 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	define: {
 		'process.env': process.env
+	},
+	server: {
+		fs: {
+			allow: ['.']
+		}
 	}
 });

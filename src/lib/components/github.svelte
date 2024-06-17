@@ -48,7 +48,7 @@
 		const element = document.getElementById(id);
 		if (element) {
 			animate(
-				progress => element.innerText = Math.round(progress * parseInt(value)).toLocaleString(),
+				(progress) => (element.innerText = Math.round(progress * parseInt(value)).toLocaleString()),
 				{ duration: 2, easing: 'ease-out' }
 			);
 		}

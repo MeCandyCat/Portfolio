@@ -61,7 +61,8 @@
 		<Profile Image1="profile/discord.png" Image2="profile/discord.gif" />
 	</div>
 	<h2
-		class="bg-gradient-to-b from-slate-900 to-violet-600 bg-clip-text pb-10 text-center text-8xl font-bold text-transparent dark:from-slate-50 dark:to-violet-600" id="hero-text"
+		class="bg-gradient-to-b from-slate-900 to-violet-600 bg-clip-text pb-10 text-center text-8xl font-bold text-transparent dark:from-slate-50 dark:to-violet-600"
+		id="hero-text"
 	>
 		Candy Cat
 	</h2>

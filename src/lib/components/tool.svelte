@@ -22,11 +22,7 @@
 </script>
 
 <Card.Root class="relative m-2 flex items-center p-4 shadow-sm {customStyle}">
-	<img
-		class="mr-4 h-12 w-12"
-		src={icon}
-		alt="{name} icon"
-	/>
+	<img class="mr-4 h-12 w-12" src={icon} alt="{name} icon" />
 	<div>
 		<div class="text-lg font-semibold">{name}</div>
 		<div class="text-sm text-gray-600">{description}</div>
