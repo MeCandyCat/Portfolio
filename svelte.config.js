@@ -1,4 +1,4 @@
-import node from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-netlify';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 
@@ -13,7 +13,7 @@ const config = {
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 
 	kit: {
-		adapter: node(),
+		adapter: adapter(),
 		paths: {
 			base: ''
 		}
