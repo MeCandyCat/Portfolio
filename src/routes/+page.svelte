@@ -7,6 +7,8 @@
 	import Youtube from '$lib/components/youtube.svelte';
 	import Project from '$lib/components/project.svelte';
 	import ToolSection from '$lib/components/toolSection.svelte';
+	import MonkeytypeStats from '$lib/components/monkeytypeStats.svelte';
+	import ChessStats from '$lib/components/chessStats.svelte';
 	import Blog from '$lib/components/blog.svelte';
 
 	import Sun from 'lucide-svelte/icons/sun';
@@ -105,5 +107,11 @@
 	<h1 class="py-10 text-center text-xl">— Tools I have used —</h1>
 
 	<ToolSection />
+
+	<h1 class="py-10 text-center text-xl">— Random Stats —</h1>
+	<div class="mx-auto grid max-w-screen-lg gap-4 sm:grid-cols-1 lg:grid-cols-2">
+		<MonkeytypeStats />
+		<ChessStats />
+	</div>
 	<Blog />
 </div>

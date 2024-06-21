@@ -8,7 +8,7 @@ export const GET: RequestHandler = async () => {
 	try {
 		const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
 		const response = await fetch(url);
-		const data:any = await response.json();
+		const data: any = await response.json();
 
 		if (data.items && data.items.length > 0) {
 			const statistics = data.items[0].statistics;
