@@ -26,7 +26,7 @@ const calculateAverageWpm = (data: any): number => {
 	const wordSegments = Object.values(personalBests.words).flat();
 
 	const allSegments = [...timeSegments, ...wordSegments];
-	const totalWpm: any = allSegments.reduce((sum, segment:any) => sum + segment.wpm, 0);
+	const totalWpm: any = allSegments.reduce((sum, segment: any) => sum + segment.wpm, 0);
 	const averageWpm = totalWpm / allSegments.length;
 
 	return averageWpm;
@@ -44,7 +44,7 @@ const calculateAccuracy = (data: any): number => {
 	const wordSegments = Object.values(personalBests.words).flat();
 
 	const allSegments = [...timeSegments, ...wordSegments];
-	const totalAccuracy: any = allSegments.reduce((sum, segment:any) => sum + segment.acc, 0);
+	const totalAccuracy: any = allSegments.reduce((sum, segment: any) => sum + segment.acc, 0);
 	const averageAccuracy = totalAccuracy / allSegments.length;
 
 	return averageAccuracy;

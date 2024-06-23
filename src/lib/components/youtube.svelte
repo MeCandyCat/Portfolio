@@ -43,11 +43,7 @@
 
 <div class="flex items-center justify-center">
 	<Card.Root class="relative w-[350px] overflow-hidden">
-		<img
-			src="banners/youtube-channel-art.png"
-			class="w-full"
-			alt="YouTube Channel Art"
-		/>
+		<img src="banners/youtube-channel-art.png" class="w-full" alt="YouTube Channel Art" />
 		<img
 			src="https://cdn.discordapp.com/assets/profile_effects/effects/2023-9-25/sayan/loop.png"
 			alt="Esthetics"

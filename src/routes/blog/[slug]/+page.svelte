@@ -33,9 +33,11 @@
 	<h1 class="text-6xl font-bold text-violet-500">{data.title}</h1>
 
 	<p class="pb-4 text-slate-500">Published: {data.date}</p>
-	<img src={data.banner} alt="Banner" class="rounded-3xl" />
+	<img src={data.banner} alt="Banner" class="rounded-3xl pb-5" />
 
-	<article class="prose prose-lg min-w-full pb-4 dark:prose-invert dark:prose-pre:bg-slate-900">
+	<article
+		class="prose prose-lg min-w-full pb-4 dark:prose-invert prose-pre:bg-slate-100 prose-pre:text-black dark:prose-pre:bg-slate-900 dark:prose-pre:text-white"
+	>
 		<svelte:component this={data.content} />
 	</article>
 </div>
