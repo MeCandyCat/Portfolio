@@ -125,7 +125,7 @@ The profile component is simple yet fun. Hover over the profile picture below to
 
 The implementation uses Svelte’s reactivity:
 
-```typescript
+```html
 <script>
     export let Image1: string;
     export let Image2: string;
