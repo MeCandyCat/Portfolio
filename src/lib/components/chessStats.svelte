@@ -27,7 +27,7 @@
 		<img
 			src="https://cdn.discordapp.com/assets/profile_effects/effects/2024-05-13/haunted-man-o-war/idle.png"
 			alt="Esthetics"
-			class="pointer-events-none absolute z-0 w-full opacity-50 blur-xl dark:opacity-10"
+			class="pointer-events-none absolute z-0 w-full opacity-25 blur-xl dark:opacity-10"
 			draggable="false"
 		/>
 		<Card.Header class="items-center space-x-2">

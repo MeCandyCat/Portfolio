@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { animate, stagger } from 'motion';
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
