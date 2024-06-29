@@ -5,6 +5,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import { getRepositoryDetails } from '$lib/components/githubutils';
+	import { animate } from 'motion';
 	import colorsJSON from './colors.json';
 
 	const getLangColor = (lang: string): string => {
@@ -30,7 +31,27 @@
 		color?: string | null;
 	}
 
-	let repoDetails: RepoDetails;
+	let repoDetails: RepoDetails = {
+		name: '',
+		description: '',
+		language: '',
+		stars: 0,
+		lastUpdatedDate: null,
+		color: null,
+	};
+
+	function animateCount(id: string, value: number): void {
+		const element = document.getElementById(id);
+		if (element) {
+			animate(
+				(progress) => {
+					const animatedValue = Math.round(progress * value);
+					element.innerText = animatedValue.toString();
+				},
+				{ duration: 2, easing: 'ease-out' }
+			);
+		}
+	}
 
 	onMount(async () => {
 		try {
@@ -42,6 +63,9 @@
 			}
 
 			repoDetails.color = getLangColor(repoDetails.language);
+
+			// Animate the stars count
+			animateCount('starsCount', repoDetails.stars);
 		} catch (error) {
 			console.error('Error fetching repository details:', error);
 		}
@@ -102,7 +126,7 @@
 			</div>
 			<div class="flex items-center">
 				<Star class="mr-1 h-3 w-3" />
-				{repoDetails?.stars || 0} stars
+				<p id="starsCount">{repoDetails.stars || 0}</p>
 			</div>
 			<div class="flex items-center">
 				{#if repoDetails?.lastUpdatedDate}

@@ -3,27 +3,50 @@
 	import * as Card from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button';
 	import Crown from 'lucide-svelte/icons/crown';
+	import { animate } from 'motion';
 
 	let chessStats = { rapid: { rating: 0 }, total: { wins: 0, losses: 0, draws: 0 } };
-	let loading = true;
+
+	async function fetchData(url: string) {
+		try {
+			const response = await fetch(url);
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+			return await response.json();
+		} catch (error) {
+			console.error('Fetch error:', error);
+			return null;
+		}
+	}
+
+	function animateCount(id: string, value: number): void {
+		const element = document.getElementById(id);
+		if (element) {
+			animate(
+				(progress) => {
+					const animatedValue = Math.round(progress * value);
+					element.innerText = animatedValue.toString();
+				},
+				{ duration: 2, easing: 'ease-out' }
+			);
+		}
+	}
 
 	onMount(async () => {
-		try {
-			const response = await fetch('/api/chess');
-			const data = await response.json();
+		const data = await fetchData('/api/chess');
+		if (data) {
 			chessStats = data;
-		} catch (error) {
-			console.error('Failed to fetch data', error);
-		} finally {
-			loading = false;
+			animateCount('rapidRating', chessStats.rapid.rating);
+			animateCount('totalWins', chessStats.total.wins);
+			animateCount('totalLosses', chessStats.total.losses);
+			animateCount('totalDraws', chessStats.total.draws);
 		}
 	});
 </script>
 
 <div class="flex justify-center">
-	<Card.Root
-		class="relative w-[500px] justify-center overflow-hidden bg-slate-50 dark:bg-emerald-950/50"
-	>
+	<Card.Root class="relative w-[500px] justify-center overflow-hidden bg-slate-50 dark:bg-emerald-950/50">
 		<img
 			src="https://cdn.discordapp.com/assets/profile_effects/effects/2024-05-13/haunted-man-o-war/idle.png"
 			alt="Esthetics"
@@ -32,49 +55,44 @@
 		/>
 		<Card.Header class="items-center space-x-2">
 			<img src="/icons/chess.com.png" alt="Chess.com logo" class="h-14" />
-			<Card.Title class="text-xl font-bold text-green-600 dark:text-green-400">Chess.com</Card.Title
-			>
+			<Card.Title class="text-xl font-bold text-green-600 dark:text-green-400">Chess.com</Card.Title>
 			<Card.Description class="overflow-hidden text-center text-sm text-black dark:text-white">
 				Statistics of my Chess performance from Chess.com. Chess.com is one of the most popular
-				online chess site.
+				online chess sites.
 			</Card.Description>
 		</Card.Header>
 		<Card.Content>
-			{#if loading}
-				<p class="text-center">Loading...</p>
-			{:else}
-				<div class="grid grid-cols-2 text-center">
-					<div class="mb-2 text-lg text-emerald-400">
-						<span class="text-sm text-gray-900 dark:text-gray-200">Rapid Rating:</span>
-						<br />
-						<span class="font-bold">{chessStats.rapid.rating}</span>
-					</div>
-					<div class="mb-2 text-lg text-emerald-400">
-						<span class="text-sm text-gray-900 dark:text-gray-200">Total Wins:</span>
-						<br />
-						<span class="font-bold">{chessStats.total.wins}</span>
-					</div>
-					<div class="mb-2 text-lg text-emerald-400">
-						<span class="text-sm text-gray-900 dark:text-gray-200">Total Losses:</span>
-						<br />
-						<span class="font-bold">{chessStats.total.losses}</span>
-					</div>
-					<div class="text-lg text-emerald-400">
-						<span class="text-sm text-gray-900 dark:text-gray-200">Total Draws:</span>
-						<br />
-						<span class="font-bold">{chessStats.total.draws}</span>
-					</div>
+			<div class="grid grid-cols-2 text-center">
+				<div class="mb-2 text-lg text-emerald-400">
+					<span class="text-sm text-gray-900 dark:text-gray-200">Rapid Rating:</span>
+					<br />
+					<span id="rapidRating" class="font-bold">0</span>
 				</div>
-				<div class="mt-2 flex justify-center space-x-2">
-					<Button
-						href="https://www.chess.com/member/mecandycat"
-						target="_blank"
-						class="transition duration-300 ease-in-out hover:scale-95"
-					>
-						<Crown class="mr-2 h-4 w-4" />Friend Me
-					</Button>
+				<div class="mb-2 text-lg text-emerald-400">
+					<span class="text-sm text-gray-900 dark:text-gray-200">Total Wins:</span>
+					<br />
+					<span id="totalWins" class="font-bold">0</span>
 				</div>
-			{/if}
+				<div class="mb-2 text-lg text-emerald-400">
+					<span class="text-sm text-gray-900 dark:text-gray-200">Total Losses:</span>
+					<br />
+					<span id="totalLosses" class="font-bold">0</span>
+				</div>
+				<div class="text-lg text-emerald-400">
+					<span class="text-sm text-gray-900 dark:text-gray-200">Total Draws:</span>
+					<br />
+					<span id="totalDraws" class="font-bold">0</span>
+				</div>
+			</div>
+			<div class="mt-2 flex justify-center space-x-2">
+				<Button
+					href="https://www.chess.com/member/mecandycat"
+					target="_blank"
+					class="transition duration-300 ease-in-out hover:scale-95"
+				>
+					<Crown class="mr-2 h-4 w-4" />Friend Me
+				</Button>
+			</div>
 		</Card.Content>
 	</Card.Root>
 </div>

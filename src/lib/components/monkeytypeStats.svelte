@@ -1,31 +1,55 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import * as Card from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button';
+	import * as Card from '$lib/components/ui/card';
 	import Keyboard from 'lucide-svelte/icons/keyboard';
 	import Copy from 'lucide-svelte/icons/copy';
 	import { toast } from 'svelte-sonner';
+	import { animate } from 'motion';
 
 	let stats = { averageWpm: 0, totalTimeMinutes: 0, accuracy: 0 };
-	let loading = true;
 
-	onMount(async () => {
+	async function fetchData(url: string) {
 		try {
-			const response = await fetch('/api/monkeytype');
-			const data = await response.json();
-			stats = data;
+			const response = await fetch(url);
+			if (!response.ok) {
+				throw new Error(`HTTP error! Status: ${response.status}`);
+			}
+			return await response.json();
 		} catch (error) {
-			console.error('Failed to fetch data', error);
-		} finally {
-			loading = false;
+			console.error('Fetch error:', error);
+			return null;
 		}
-	});
+	}
+
+	function animateCount(id: string, value: number, format: (value: number) => string = (v) => v.toFixed(2)): void {
+		const element = document.getElementById(id);
+		if (element) {
+			animate(
+				(progress) => {
+					const animatedValue = progress * value;
+					element.innerText = format(animatedValue);
+				},
+				{ duration: 2, easing: 'ease-out' }
+			);
+		}
+	}
 
 	function formatTime(minutes: number): string {
 		const hours = Math.floor(minutes / 60);
 		const mins = Math.round(minutes % 60);
 		return `${hours}h ${mins}min`;
 	}
+
+	onMount(async () => {
+		const data = await fetchData('/api/monkeytype');
+		if (data) {
+			stats = data;
+			animateCount('averageWpm', stats.averageWpm);
+			animateCount('totalTimeMinutes', stats.totalTimeMinutes, formatTime);
+			animateCount('accuracy', stats.accuracy, (value) => `${value.toFixed(2)}%`);
+		}
+	});
 
 	const copyTheme = async () => {
 		try {
@@ -52,51 +76,47 @@
 		/>
 		<Card.Header class="items-center space-x-2">
 			<img src="/icons/Monkeytype.svg" alt="Monkeytype logo" class="h-24 w-24 fill-violet-400" />
-			<Card.Title class="text-xl font-bold text-violet-600 dark:text-violet-400"
-				>Monkeytype Stats</Card.Title
-			>
+			<Card.Title class="text-xl font-bold text-violet-600 dark:text-violet-400">
+				Monkeytype Stats
+			</Card.Title>
 			<Card.Description class="overflow-hidden text-center text-sm text-black dark:text-white">
-				Statistics of my typing performance. Monkeytype is a minimalistic and customizable typing
-				test.
+				Statistics of my typing performance. Monkeytype is a minimalistic and customizable typing test.
 			</Card.Description>
 		</Card.Header>
 		<Card.Content>
-			{#if loading}
-				<p class="text-center">Loading...</p>
-			{:else}
-				<div class="grid grid-cols-3 text-center">
-					<div class="mb-2 text-lg text-cyan-400">
-						<span class="text-sm text-gray-900 dark:text-gray-200">Average WPM:</span>
-						<span class="font-bold">{stats.averageWpm}</span>
-					</div>
-					<div class="mb-2 text-lg text-cyan-400">
-						<span class="text-sm text-gray-900 dark:text-gray-200">Total Time:</span>
-						<br />
-						<span class="font-bold">{formatTime(stats.totalTimeMinutes)}</span>
-					</div>
-					<div class="text-lg text-cyan-400">
-						<span class="text-sm text-gray-900 dark:text-gray-200">Accuracy:</span>
-						<br />
-						<span class="font-bold">{stats.accuracy}%</span>
-					</div>
+			<div class="grid grid-cols-3 text-center">
+				<div class="mb-2 text-lg text-cyan-400">
+					<span class="text-sm text-gray-900 dark:text-gray-200">Average WPM:</span>
+					<br />
+					<span id="averageWpm" class="font-bold">0.00</span>
 				</div>
-				<div class="mt-2 flex justify-center space-x-2">
-					<Button
-						href="https://monkeytype.com/profile/CandyCat"
-						target="_blank"
-						class="transition duration-300 ease-in-out hover:scale-95"
-					>
-						<Keyboard class="mr-2 h-4 w-4" />Profile
-					</Button>
-					<Button
-						on:click={copyTheme}
-						class="transition duration-300 ease-in-out hover:scale-95"
-						variant="outline"
-					>
-						<Copy class="mr-2 h-4 w-4" />Monkeytype Theme
-					</Button>
+				<div class="mb-2 text-lg text-cyan-400">
+					<span class="text-sm text-gray-900 dark:text-gray-200">Total Time:</span>
+					<br />
+					<span id="totalTimeMinutes" class="font-bold">0h 0min</span>
 				</div>
-			{/if}
+				<div class="text-lg text-cyan-400">
+					<span class="text-sm text-gray-900 dark:text-gray-200">Accuracy:</span>
+					<br />
+					<span id="accuracy" class="font-bold">0.00%</span>
+				</div>
+			</div>
+			<div class="mt-2 flex justify-center space-x-2">
+				<Button
+					href="https://monkeytype.com/profile/CandyCat"
+					target="_blank"
+					class="transition duration-300 ease-in-out hover:scale-95"
+				>
+					<Keyboard class="mr-2 h-4 w-4" />Profile
+				</Button>
+				<Button
+					on:click={copyTheme}
+					class="transition duration-300 ease-in-out hover:scale-95"
+					variant="outline"
+				>
+					<Copy class="mr-2 h-4 w-4" />Monkeytype Theme
+				</Button>
+			</div>
 		</Card.Content>
 	</Card.Root>
 </div>
