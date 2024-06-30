@@ -1,18 +1,50 @@
+import { Client, GatewayIntentBits } from 'discord.js';
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
+import 'dotenv/config';
 
-export const GET: RequestHandler = async ({ fetch }) => {
+const client = new Client({
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildPresences,
+		GatewayIntentBits.GuildMembers
+	]
+});
+const userId = '806415408495460362';
+let clientReady = false;
+
+async function checkStatus(): Promise<string> {
 	try {
-		const response = await fetch('https://candycat.fretro.com/.netlify/functions/discordActivity');
-
-		if (!response.ok) {
-			throw new Error(`Error fetching Discord status: ${response.status} ${response.statusText}`);
+		for (const [guildId, guild] of client.guilds.cache) {
+			const member = await guild.members.fetch(userId);
+			if (member) {
+				return member.presence ? member.presence.status : 'offline';
+			}
 		}
-
-		const data = await response.json();
-		return json(data);
+		return 'offline';
 	} catch (error) {
-		console.error('Error fetching Discord status:', error);
-		return json({ status: 'error' }, { status: 500 });
+		console.error('Error fetching user status:', error);
+		return 'error';
 	}
+}
+
+client.once('ready', async () => {
+	clientReady = true;
+});
+
+export const GET: RequestHandler = async () => {
+	let status = 'offline';
+
+	if (!clientReady) {
+		try {
+			await client.login(process.env.DISCORD_TOKEN);
+			clientReady = true;
+		} catch (error) {
+			console.error('Error logging into Discord:', error);
+			return json({ status: 'error', message: 'Failed to login to Discord' }, { status: 500 });
+		}
+	}
+
+	status = await checkStatus();
+	return json({ status });
 };
