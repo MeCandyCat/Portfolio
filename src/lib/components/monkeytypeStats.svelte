@@ -22,7 +22,11 @@
 		}
 	}
 
-	function animateCount(id: string, value: number, format: (value: number) => string = (v) => v.toFixed(2)): void {
+	function animateCount(
+		id: string,
+		value: number,
+		format: (value: number) => string = (v) => v.toFixed(2)
+	): void {
 		const element = document.getElementById(id);
 		if (element) {
 			animate(
@@ -77,10 +81,11 @@
 		<Card.Header class="items-center space-x-2">
 			<img src="/icons/Monkeytype.svg" alt="Monkeytype logo" class="h-24 w-24 fill-violet-400" />
 			<Card.Title class="text-xl font-bold text-violet-600 dark:text-violet-400">
-				Monkeytype Stats
+				Monkeytype
 			</Card.Title>
 			<Card.Description class="overflow-hidden text-center text-sm text-black dark:text-white">
-				Statistics of my typing performance. Monkeytype is a minimalistic and customizable typing test.
+				Statistics of my typing performance. Monkeytype is a minimalistic and customizable typing
+				test.
 			</Card.Description>
 		</Card.Header>
 		<Card.Content>

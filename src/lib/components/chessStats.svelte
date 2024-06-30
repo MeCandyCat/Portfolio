@@ -46,7 +46,9 @@
 </script>
 
 <div class="flex justify-center">
-	<Card.Root class="relative w-[500px] justify-center overflow-hidden bg-slate-50 dark:bg-emerald-950/50">
+	<Card.Root
+		class="relative w-[500px] justify-center overflow-hidden bg-slate-50 dark:bg-emerald-950/50"
+	>
 		<img
 			src="https://cdn.discordapp.com/assets/profile_effects/effects/2024-05-13/haunted-man-o-war/idle.png"
 			alt="Esthetics"
@@ -55,7 +57,8 @@
 		/>
 		<Card.Header class="items-center space-x-2">
 			<img src="/icons/chess.com.png" alt="Chess.com logo" class="h-14" />
-			<Card.Title class="text-xl font-bold text-green-600 dark:text-green-400">Chess.com</Card.Title>
+			<Card.Title class="text-xl font-bold text-green-600 dark:text-green-400">Chess.com</Card.Title
+			>
 			<Card.Description class="overflow-hidden text-center text-sm text-black dark:text-white">
 				Statistics of my Chess performance from Chess.com. Chess.com is one of the most popular
 				online chess sites.

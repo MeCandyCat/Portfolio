@@ -37,7 +37,7 @@
 		language: '',
 		stars: 0,
 		lastUpdatedDate: null,
-		color: null,
+		color: null
 	};
 
 	function animateCount(id: string, value: number): void {
