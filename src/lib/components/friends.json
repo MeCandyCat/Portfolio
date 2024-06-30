@@ -1,0 +1,13 @@
+{
+	"mud": {
+		"bannerColor": "bg-cyan-600",
+		"profilePicture": "https://cdn.discordapp.com/avatars/982179680318783498/f19744df59571d80be2ed2810b4e192a?size=128",
+		"displayName": "MUD1",
+		"username": "@mihinmud",
+		"aboutMe": "I am a programmer and I play games. Mostly Stardew Valley and Brawl Stars but I am a huge fan of the witcher series too!",
+		"connections": [
+			{ "type": "GitHub", "username": "MihinMUD", "url": "https://github.com/MihinMUD" },
+			{ "type": "Web", "username": "Portfolio", "url": "https://mud.fretro.com/" }
+		]
+	}
+}

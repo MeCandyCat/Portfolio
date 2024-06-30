@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { animate } from 'motion';
 	import { toggleMode } from 'mode-watcher';
 	import { Button } from '$lib/components/ui/button';
 	import Profile from '$lib/components/pfp.svelte';
@@ -11,13 +13,13 @@
 	import ChessStats from '$lib/components/chessStats.svelte';
 	import Friend from '$lib/components/discordFriend.svelte';
 	import Blog from '$lib/components/blog.svelte';
+	import friends from '$lib/components/friends.json';
 
 	import Sun from 'lucide-svelte/icons/sun';
 	import Moon from 'lucide-svelte/icons/moon';
 	import News from 'lucide-svelte/icons/newspaper';
 
-	import { animate } from 'motion';
-	import { onMount } from 'svelte';
+	const mud = friends.mud;
 
 	onMount(() => {
 		animate('#hero-text', { transform: 'rotate(-5deg)' }, { duration: 0.5 });
@@ -82,21 +84,7 @@
 		developments in technology and explore new tools that can enhance my productivity. I believe in
 		continuous learning and enjoy experimenting with different technologies to expand my skill set.
 		I mostly work with my friend
-		<Friend
-			profile={{
-				bannerColor: 'bg-cyan-600',
-				profilePicture:
-					'https://cdn.discordapp.com/avatars/982179680318783498/f19744df59571d80be2ed2810b4e192a?size=128',
-				displayName: 'MUD1',
-				username: '@mihinmud',
-				aboutMe:
-					'I am a programmer and I play games. Mostly Stardew Valley and Brawl Stars but I am a huge fan of the witcher series too!',
-				connections: [
-					{ type: 'GitHub', username: 'MihinMUD', url: 'https://github.com/MihinMUD' },
-					{ type: 'Web', username: 'Portfolio', url: 'https://mud.fretro.com/' }
-				]
-			}}
-		>
+		<Friend profile={mud}>
 			<span class="text-orange-500 underline decoration-dashed underline-offset-4 hover:opacity-75"
 				>@mud</span
 			>
