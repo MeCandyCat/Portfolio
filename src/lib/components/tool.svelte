@@ -21,15 +21,17 @@
 	};
 </script>
 
-<Card.Root class="relative m-2 flex items-center p-4 shadow-sm {customStyle}">
-	<img class="mr-4 h-12 w-12" src={icon} alt="{name} icon" />
-	<div>
-		<div class="text-lg font-semibold">{name}</div>
-		<div class="text-sm text-gray-600">{description}</div>
-	</div>
-	{#if badgeText}
-		<Badge class={`absolute right-2 top-2 ${getBadgeColor(badgeText)}`}>
-			{badgeText}
-		</Badge>
-	{/if}
-</Card.Root>
+<div class="flex-[0_0_auto]">
+	<Card.Root class="relative m-2 flex items-center p-4 shadow-sm {customStyle} min-w-96">
+		<img class="mr-4 h-12 w-12" src={icon} alt="{name} icon" />
+		<div>
+			<div class="text-lg font-semibold">{name}</div>
+			<div class="text-sm text-gray-600">{description}</div>
+		</div>
+		{#if badgeText}
+			<Badge class={`absolute right-2 top-2 ${getBadgeColor(badgeText)}`}>
+				{badgeText}
+			</Badge>
+		{/if}
+	</Card.Root>
+</div>

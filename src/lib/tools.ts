@@ -21,7 +21,7 @@ export default [
 		name: 'JavaScript',
 		icon: '/icons/JavaScript.svg',
 		badgeText: 'Language',
-		description: 'Client-side scripting language for web d,evelopment.'
+		description: 'Client-side scripting language for web development.'
 	},
 	{
 		name: 'TypeScript',
