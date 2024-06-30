@@ -2,7 +2,6 @@
 	import * as Popover from '$lib/components/ui/popover';
 
 	export let profile = {
-		bannerColor: 'bg-gray-300',
 		profilePicture: 'https://via.placeholder.com/150',
 		displayName: 'Username',
 		username: '@username',
@@ -16,13 +15,12 @@
 		&nbsp;<slot />&nbsp;
 	</Popover.Trigger>
 	<Popover.Content>
-		<div class={`h-16 rounded-sm ${profile.bannerColor}`}></div>
 		<div class="mt-2 flex flex-col items-center">
 			<!-- svelte-ignore a11y-img-redundant-alt -->
 			<img
 				src={profile.profilePicture}
 				alt="Profile Picture"
-				class="-mt-10 h-20 w-20 rounded-full border-2"
+				class="-mt-14 h-20 w-20 rounded-full border-2"
 			/>
 			<div class="mt-2 text-center">
 				<div class="text-lg font-bold">{profile.displayName}</div>
