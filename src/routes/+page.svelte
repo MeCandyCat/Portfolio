@@ -31,7 +31,7 @@
 	<title>Candy Cat</title>
 
 	<meta content="Candy Cat Portfolio" property="og:title" />
-	<meta content="A website to show i exsist." property="og:description" />
+	<meta content="A website to show i exist." property="og:description" />
 	<meta content="/banners/hello-world-embed.png" property="og:image" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content="/banners/hello-world-embed.png" />
