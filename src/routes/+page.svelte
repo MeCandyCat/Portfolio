@@ -71,7 +71,7 @@
 	>
 		Candy Cat
 	</h2>
-	<p class="mx-auto max-w-screen-xl px-8 pb-10 text-justify text-xl leading-7">
+	<p class="mx-auto max-w-screen-xl px-8 text-justify text-xl leading-7">
 		Hello! I'm Candy Cat, a developer with a passion for creating efficient and user-friendly web
 		solutions. With few years of experience in web development, I specialize in
 		<span class="font-semibold text-red-500">Svelte</span>
@@ -92,6 +92,7 @@
 		to build websites. We started Fretro to share our work to the world.
 	</p>
 
+	<h1 class="py-10 text-center text-xl">— Socials —</h1>
 	<div class="mx-auto grid max-w-screen-lg gap-4 sm:grid-cols-1 lg:grid-cols-3">
 		<Discord />
 		<Github />
@@ -100,7 +101,7 @@
 
 	<h1 class="py-10 text-center text-xl">— Projects I worked on —</h1>
 
-	<div class="mx-auto flex max-w-screen-xl flex-wrap justify-center gap-4 pb-8">
+	<div class="mx-auto flex max-w-screen-xl flex-wrap justify-center gap-4">
 		<Project username="MeCandyCat" repositoryName="Portfolio" />
 		<Project username="MeCandyCat" repositoryName="LMS" />
 		<Project username="MeCandyCat" repositoryName="LMS-Dash" />
@@ -116,5 +117,6 @@
 		<MonkeytypeStats />
 		<ChessStats />
 	</div>
+	<div class="pb-10" />
 	<Blog />
 </div>

@@ -4,7 +4,7 @@
 	import News from 'lucide-svelte/icons/newspaper';
 </script>
 
-<div class="relative mt-6 flex items-center justify-center overflow-hidden">
+<div class="relative flex items-center justify-center overflow-hidden">
 	<Card.Root
 		class="animate-fadeIn h-[300px] w-full transform rounded-none bg-gradient-to-r from-indigo-500/50 text-center transition-transform duration-500 ease-in-out hover:scale-105 dark:from-indigo-500/20"
 	>
