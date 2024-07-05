@@ -226,16 +226,6 @@ The Tool component is straightforward. It displays tools I’ve used with the pr
 />
 ```
 
-<div class="flex justify-center">
-    <Tool
-        name="Adobe Photoshop"
-        icon="/icons/PhotoShop.svg"
-        badgeText="App"
-        description="A professional image editing software."
-        customStyle="not-prose w-[500px]"
-    />
-</div>
-
 ### Random Stats Section
 
 The Random Stats section displays stats using APIs from various services. Each card represents my activity on the respective site, like Monkeytype, with a similar theme to the site. Ensure you secure any API tokens used.

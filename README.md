@@ -1,6 +1,6 @@
 # Portfolio
 
-Welcome to my portfolio! This project is a personal showcase designed to share a bit about who I am and what I do. 
+Welcome to my portfolio! This project is a personal showcase designed to share a bit about who I am and what I do.
 
 ## Overview
 
@@ -16,6 +16,7 @@ This portfolio is built using Svelte, a modern front-end framework. It highlight
 ## Technologies Used
 
 - **Languages:**
+
   - Svelte
   - TypeScript
   - Tailwind CSS

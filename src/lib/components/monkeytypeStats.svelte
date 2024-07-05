@@ -71,7 +71,7 @@
 </script>
 
 <div class="flex justify-center">
-	<Card.Root class="relative w-[500px] overflow-hidden bg-slate-50 dark:bg-[#292b38]/50">
+	<Card.Root class="relative w-full overflow-hidden bg-slate-50 dark:bg-[#292b38]/50 sm:w-[500px]">
 		<img
 			src="https://cdn.discordapp.com/assets/profile_effects/effects/2024-04-04/watercolors/intro.png"
 			alt="Esthetics"
@@ -80,16 +80,16 @@
 		/>
 		<Card.Header class="items-center space-x-2">
 			<img src="/icons/Monkeytype.svg" alt="Monkeytype logo" class="h-24 w-24 fill-violet-400" />
-			<Card.Title class="text-xl font-bold text-violet-600 dark:text-violet-400">
-				Monkeytype
-			</Card.Title>
+			<Card.Title class="text-xl font-bold text-violet-600 dark:text-violet-400"
+				>Monkeytype</Card.Title
+			>
 			<Card.Description class="overflow-hidden text-center text-sm text-black dark:text-white">
 				Statistics of my typing performance. Monkeytype is a minimalistic and customizable typing
 				test.
 			</Card.Description>
 		</Card.Header>
 		<Card.Content>
-			<div class="grid grid-cols-3 text-center">
+			<div class="grid grid-cols-3 gap-2 text-center">
 				<div class="mb-2 text-lg text-cyan-400">
 					<span class="text-sm text-gray-900 dark:text-gray-200">Average WPM:</span>
 					<br />
@@ -100,28 +100,28 @@
 					<br />
 					<span id="totalTimeMinutes" class="font-bold">0h 0min</span>
 				</div>
-				<div class="text-lg text-cyan-400">
+				<div class="mb-2 text-lg text-cyan-400">
 					<span class="text-sm text-gray-900 dark:text-gray-200">Accuracy:</span>
 					<br />
 					<span id="accuracy" class="font-bold">0.00%</span>
 				</div>
 			</div>
-			<div class="mt-2 flex justify-center space-x-2">
-				<Button
-					href="https://monkeytype.com/profile/CandyCat"
-					target="_blank"
-					class="transition duration-300 ease-in-out hover:scale-95"
-				>
-					<Keyboard class="mr-2 h-4 w-4" />Profile
-				</Button>
-				<Button
-					on:click={copyTheme}
-					class="transition duration-300 ease-in-out hover:scale-95"
-					variant="outline"
-				>
-					<Copy class="mr-2 h-4 w-4" />Monkeytype Theme
-				</Button>
-			</div>
 		</Card.Content>
+		<Card.Footer class="mt-2 flex flex-wrap items-center justify-center space-x-2">
+			<Button
+				href="https://monkeytype.com/profile/CandyCat"
+				target="_blank"
+				class="mb-2 transition duration-300 ease-in-out hover:scale-95"
+			>
+				<Keyboard class="mr-2 h-4 w-4" /> Profile
+			</Button>
+			<Button
+				on:click={copyTheme}
+				class="mb-2 transition duration-300 ease-in-out hover:scale-95"
+				variant="outline"
+			>
+				<Copy class="mr-2 h-4 w-4" /> Monkeytype Theme
+			</Button>
+		</Card.Footer>
 	</Card.Root>
 </div>

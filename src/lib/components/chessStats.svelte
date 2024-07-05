@@ -47,7 +47,7 @@
 
 <div class="flex justify-center">
 	<Card.Root
-		class="relative w-[500px] justify-center overflow-hidden bg-slate-50 dark:bg-emerald-950/50"
+		class="relative w-full justify-center overflow-hidden bg-slate-50 dark:bg-emerald-950/50 sm:w-[500px]"
 	>
 		<img
 			src="https://cdn.discordapp.com/assets/profile_effects/effects/2024-05-13/haunted-man-o-war/idle.png"
@@ -65,37 +65,45 @@
 			</Card.Description>
 		</Card.Header>
 		<Card.Content>
-			<div class="grid grid-cols-2 text-center">
-				<div class="mb-2 text-lg text-emerald-400">
-					<span class="text-sm text-gray-900 dark:text-gray-200">Rapid Rating:</span>
-					<br />
-					<span id="rapidRating" class="font-bold">0</span>
+			<div class="grid grid-cols-2 gap-2 text-center">
+				<div class="mb-4 sm:mb-0">
+					<p class="text-base text-emerald-400 sm:text-lg">
+						<span class="text-sm text-gray-900 dark:text-gray-200 sm:text-base">Rapid Rating:</span>
+						<br />
+						<span id="rapidRating" class="font-bold">0</span>
+					</p>
 				</div>
-				<div class="mb-2 text-lg text-emerald-400">
-					<span class="text-sm text-gray-900 dark:text-gray-200">Total Wins:</span>
-					<br />
-					<span id="totalWins" class="font-bold">0</span>
+				<div class="mb-4 sm:mb-0">
+					<p class="text-base text-emerald-400 sm:text-lg">
+						<span class="text-sm text-gray-900 dark:text-gray-200 sm:text-base">Total Wins:</span>
+						<br />
+						<span id="totalWins" class="font-bold">0</span>
+					</p>
 				</div>
-				<div class="mb-2 text-lg text-emerald-400">
-					<span class="text-sm text-gray-900 dark:text-gray-200">Total Losses:</span>
-					<br />
-					<span id="totalLosses" class="font-bold">0</span>
+				<div class="mb-4 sm:mb-0">
+					<p class="text-base text-emerald-400 sm:text-lg">
+						<span class="text-sm text-gray-900 dark:text-gray-200 sm:text-base">Total Losses:</span>
+						<br />
+						<span id="totalLosses" class="font-bold">0</span>
+					</p>
 				</div>
-				<div class="text-lg text-emerald-400">
-					<span class="text-sm text-gray-900 dark:text-gray-200">Total Draws:</span>
-					<br />
-					<span id="totalDraws" class="font-bold">0</span>
+				<div>
+					<p class="text-base text-emerald-400 sm:text-lg">
+						<span class="text-sm text-gray-900 dark:text-gray-200 sm:text-base">Total Draws:</span>
+						<br />
+						<span id="totalDraws" class="font-bold">0</span>
+					</p>
 				</div>
-			</div>
-			<div class="mt-2 flex justify-center space-x-2">
-				<Button
-					href="https://www.chess.com/member/mecandycat"
-					target="_blank"
-					class="transition duration-300 ease-in-out hover:scale-95"
-				>
-					<Crown class="mr-2 h-4 w-4" />Friend Me
-				</Button>
 			</div>
 		</Card.Content>
+		<Card.Footer class="mt-2 flex flex-wrap items-center justify-center space-x-2">
+			<Button
+				href="https://www.chess.com/member/candycat"
+				target="_blank"
+				class="transition duration-300 ease-in-out hover:scale-95"
+			>
+				<Crown class="mr-2 h-4 w-4" /> Profile
+			</Button>
+		</Card.Footer>
 	</Card.Root>
 </div>

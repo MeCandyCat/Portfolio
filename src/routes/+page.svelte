@@ -66,12 +66,14 @@
 		<Profile Image1="profile/discord.png" Image2="profile/discord.gif" />
 	</div>
 	<h2
-		class="bg-gradient-to-b from-slate-900 to-violet-600 bg-clip-text pb-10 text-center text-8xl font-bold text-transparent dark:from-slate-50 dark:to-violet-600"
+		class="bg-gradient-to-b from-slate-900 to-violet-600 bg-clip-text pb-10 text-center text-4xl font-bold text-transparent dark:from-slate-50 dark:to-violet-600 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
 		id="hero-text"
 	>
 		Candy Cat
 	</h2>
-	<p class="mx-auto max-w-screen-xl px-8 text-justify text-xl leading-7">
+	<p
+		class="mx-auto max-w-screen-xl px-4 text-justify text-base leading-6 sm:px-6 sm:text-lg sm:leading-7 md:px-8 md:text-xl md:leading-8"
+	>
 		Hello! I'm Candy Cat, a developer with a passion for creating efficient and user-friendly web
 		solutions. With few years of experience in web development, I specialize in
 		<span class="font-semibold text-red-500">Svelte</span>
@@ -93,7 +95,9 @@
 	</p>
 
 	<h1 class="py-10 text-center text-xl">— Socials —</h1>
-	<div class="mx-auto grid max-w-screen-lg gap-4 sm:grid-cols-1 lg:grid-cols-3">
+	<div
+		class="mx-auto flex max-w-screen-lg flex-col items-center gap-4 sm:grid sm:grid-cols-1 lg:grid-cols-3"
+	>
 		<Discord />
 		<Github />
 		<Youtube />
@@ -114,9 +118,14 @@
 
 	<h1 class="py-10 text-center text-xl">— Random Stats —</h1>
 	<div class="mx-auto grid max-w-screen-lg gap-4 sm:grid-cols-1 lg:grid-cols-2">
-		<MonkeytypeStats />
-		<ChessStats />
+		<div class="flex justify-center">
+			<MonkeytypeStats />
+		</div>
+		<div class="flex justify-center">
+			<ChessStats />
+		</div>
 	</div>
+
 	<div class="pb-10" />
 	<Blog />
 </div>
