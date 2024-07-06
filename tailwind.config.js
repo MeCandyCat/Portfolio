@@ -3,9 +3,9 @@ import { fontFamily } from 'tailwindcss/defaultTheme';
 /** @type {import('tailwindcss').Config} */
 const config = {
 	darkMode: ['class'],
-	content: ['./src/**/*.{html,js,svelte,ts,md}'],
+	content: ['./src/**/*.{html,js,svelte,ts,md}', './node_modules/svhighlight/**/*.svelte'],
 	safelist: ['dark'],
-	plugins: [require('@tailwindcss/typography')],
+	plugins: [require('@tailwindcss/typography'), require('tailwindcss-animate')],
 	theme: {
 		container: {
 			center: true,
@@ -57,6 +57,20 @@ const config = {
 			},
 			fontFamily: {
 				sans: [...fontFamily.sans]
+			},
+			keyframes: {
+				'marquee-left': {
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(calc(-100% - var(--gap)))' }
+				},
+				'marquee-up': {
+					from: { transform: 'translateY(0)' },
+					to: { transform: 'translateY(calc(-100% - var(--gap)))' }
+				}
+			},
+			animation: {
+				'marquee-left': 'marquee-left var(--duration, 40s) linear infinite',
+				'marquee-up': 'marquee-up var(--duration, 40s) linear infinite'
 			}
 		}
 	}
