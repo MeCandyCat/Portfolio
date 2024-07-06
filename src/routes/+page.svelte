@@ -98,8 +98,8 @@
 	<div
 		class="mx-auto flex max-w-screen-lg flex-col items-center gap-4 sm:grid sm:grid-cols-1 lg:grid-cols-3"
 	>
-		<Discord />
 		<Github />
+		<Discord />
 		<Youtube />
 	</div>
 
