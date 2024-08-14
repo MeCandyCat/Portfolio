@@ -66,15 +66,20 @@
 			draggable="false"
 		/>
 		<div class="flex flex-col items-center py-5">
-			<div class="relative">
-				<img
-					src="https://cdn.discordapp.com/avatar-decoration-presets/a_fed43ab12698df65902ba06727e20c0e.png"
-					alt="Decoration"
-					class="pointer-events-none absolute z-10 w-24"
-					draggable="false"
-				/>
-				<div class={`rounded-full border-[3px] ${getStatusBorderColor(discordStatus)}`}>
-					<Profile Image1="profile/discord.png" Image2="profile/discord.gif" customStyle="" />
+			<div class="relative inline-block">
+				<div class="relative">
+					<Profile Image1="profile/discord.png" Image2="profile/discord.gif" customStyle="z-0" />
+
+					<img
+						src="https://cdn.discordapp.com/avatar-decoration-presets/a_a87e3efa4de2956331831681231ce63b.png?size=128&passthrough=true"
+						alt="Decoration"
+						class="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 scale-[112%] transform"
+						draggable="false"
+					/>
+
+					<div
+						class={`absolute inset-0 z-10 rounded-full border-[3px] ${getStatusBorderColor(discordStatus)}`}
+					></div>
 				</div>
 			</div>
 			<div class="z-10 grid grid-cols-8 place-items-center">
