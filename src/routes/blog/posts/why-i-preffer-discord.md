@@ -2,7 +2,7 @@
 title: Why I preffer Discord
 date: '2024-05-14'
 description: Why discord is the best tool for collaboration.
-banner: /banners/discord-dev.png
+banner: /banners/discord-blog.png
 published: true
 ---
 

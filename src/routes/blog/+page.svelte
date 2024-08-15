@@ -29,23 +29,22 @@
 <div class="mx-auto max-w-screen-lg p-4 sm:p-8">
 	<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 		{#each data.posts as post}
-			<Card.Root id="posts" class="w-full overflow-hidden opacity-0">
+			<Card.Root id="posts" class="flex w-full flex-col overflow-hidden opacity-0">
 				<img
 					src={post.banner}
 					alt="Banner"
-					class="aspect-w-3 aspect-h-1 w-full bg-slate-300 object-cover dark:bg-slate-900"
+					class="aspect-h-1 w-full bg-slate-300 object-cover dark:bg-slate-900"
 				/>
 				<Card.Header>
 					<Card.Title>{post.title}</Card.Title>
 					<Card.Description>{post.description}</Card.Description>
 				</Card.Header>
-				<Card.Content>
+				<Card.Content class="flex-grow" />
+				<Card.Footer class="flex flex-col space-y-2">
 					<Button href={post.slug} class="transition duration-300 ease-in-out hover:scale-95">
 						Read <Arrow class="ml-2 h-4 w-4" />
 					</Button>
-				</Card.Content>
-				<Card.Footer>
-					<p class="text-slate-500">{post.date}</p>
+					<p class="text-sm text-slate-500">{post.date}</p>
 				</Card.Footer>
 			</Card.Root>
 		{/each}
