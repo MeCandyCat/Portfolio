@@ -5,6 +5,7 @@
 	import * as Card from '$lib/components/ui/card';
 
 	import Arrow from 'lucide-svelte/icons/arrow-right';
+	import Sparkles from 'lucide-svelte/icons/sparkles';
 
 	export let data;
 
@@ -35,6 +36,18 @@
 					alt="Banner"
 					class="aspect-h-1 w-full bg-slate-300 object-cover dark:bg-slate-900"
 				/>
+				{#if post.interactive}
+					<div class="absolute left-2 top-2">
+						<Button
+							size="icon"
+							variant="outline"
+							class="h-8 w-8 rounded-full opacity-50 transition duration-300 ease-in-out hover:opacity-100"
+							title="Interactive"
+						>
+							<Sparkles class="h-4 w-4" />
+						</Button>
+					</div>
+				{/if}
 				<Card.Header>
 					<Card.Title>{post.title}</Card.Title>
 					<Card.Description>{post.description}</Card.Description>

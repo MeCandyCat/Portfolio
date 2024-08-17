@@ -4,6 +4,7 @@ date: '2024-06-27'
 description: Behind the scenes of this site.
 banner: /banners/blueprint-blog.png
 published: true
+interactive: true
 ---
 
 <script lang="ts">

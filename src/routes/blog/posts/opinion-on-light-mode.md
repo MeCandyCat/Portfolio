@@ -4,6 +4,7 @@ date: '2024-05-16'
 description: you should too.
 banner: /banners/light-mode.png
 published: true
+interactive: false
 ---
 
 <script lang="ts">

@@ -4,6 +4,7 @@ date: '2024-08-14'
 description: The Underrated 3D Editor for Effortless Web Integration.
 banner: /banners/spline-blog.png
 published: true
+interactive: true
 ---
 
 <script>

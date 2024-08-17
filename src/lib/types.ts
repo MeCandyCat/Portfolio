@@ -5,4 +5,5 @@ export interface Post {
 	date: string;
 	banner: string;
 	published: boolean;
+	interactive: boolean;
 }
