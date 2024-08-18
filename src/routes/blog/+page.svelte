@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
+	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
 	import SearchBar from '$lib/components/searchBar.svelte';
 	import Arrow from 'lucide-svelte/icons/arrow-right';
 	import Sparkles from 'lucide-svelte/icons/sparkles';
@@ -69,16 +70,20 @@
 							class="aspect-h-1 w-full bg-slate-300 object-cover dark:bg-slate-900"
 						/>
 						{#if post.interactive}
-							<div class="absolute left-2 top-2">
-								<Button
-									size="icon"
-									variant="outline"
-									class="h-8 w-8 rounded-full opacity-50 transition duration-300 ease-in-out hover:opacity-100"
-									title="Interactive"
-								>
-									<Sparkles class="h-4 w-4" />
-								</Button>
-							</div>
+							<Tooltip.Root>
+								<div class="absolute left-2 top-2">
+									<Tooltip.Trigger>
+										<div
+											class="flex h-6 w-6 items-center justify-center rounded-full text-white opacity-50 backdrop-blur-3xl transition duration-300 ease-in-out hover:opacity-100"
+										>
+											<Sparkles class="h-4 w-4" />
+										</div>
+									</Tooltip.Trigger>
+									<Tooltip.Content>
+										<div>interactive</div>
+									</Tooltip.Content>
+								</div>
+							</Tooltip.Root>
 						{/if}
 					</div>
 					<Card.Header>
