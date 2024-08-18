@@ -1,22 +1,46 @@
 <script lang="ts">
-	import { animate, stagger } from 'motion';
 	import { onMount } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
-
+	import SearchBar from '$lib/components/searchBar.svelte';
 	import Arrow from 'lucide-svelte/icons/arrow-right';
 	import Sparkles from 'lucide-svelte/icons/sparkles';
 
-	export let data;
+	interface Post {
+		title: string;
+		date: string;
+		description: string;
+		banner: string;
+		published: boolean;
+		interactive: boolean;
+		slug: string;
+	}
 
-	onMount(() => {
-		animate('#posts', { opacity: 1, y: [-100, 0] }, { duration: 1, delay: stagger(0.1) });
+	let allPosts: Post[] = [];
+	let filteredPosts: Post[] = [];
+
+	onMount(async () => {
+		try {
+			const response = await fetch('/api/posts');
+			allPosts = await response.json();
+			filteredPosts = allPosts;
+		} catch (error) {
+			console.error('Error fetching posts:', error);
+		}
 	});
+
+	function handleSearch(query: string) {
+		const lowercaseQuery = query.toLowerCase();
+		filteredPosts = allPosts.filter(
+			(post) =>
+				post.title.toLowerCase().includes(lowercaseQuery) ||
+				post.description.toLowerCase().includes(lowercaseQuery)
+		);
+	}
 </script>
 
 <svelte:head>
 	<title>C@ Blog</title>
-
 	<!-- Embed Card Details -->
 	<meta property="og:type" content="article" />
 	<meta content="C@ Blog" property="og:title" />
@@ -28,38 +52,48 @@
 </svelte:head>
 
 <div class="mx-auto max-w-screen-lg p-4 sm:p-8">
-	<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-		{#each data.posts as post}
-			<Card.Root id="posts" class="flex w-full flex-col overflow-hidden opacity-0">
-				<img
-					src={post.banner}
-					alt="Banner"
-					class="aspect-h-1 w-full bg-slate-300 object-cover dark:bg-slate-900"
-				/>
-				{#if post.interactive}
-					<div class="absolute left-2 top-2">
-						<Button
-							size="icon"
-							variant="outline"
-							class="h-8 w-8 rounded-full opacity-50 transition duration-300 ease-in-out hover:opacity-100"
-							title="Interactive"
-						>
-							<Sparkles class="h-4 w-4" />
-						</Button>
-					</div>
-				{/if}
-				<Card.Header>
-					<Card.Title>{post.title}</Card.Title>
-					<Card.Description>{post.description}</Card.Description>
-				</Card.Header>
-				<Card.Content class="flex-grow" />
-				<Card.Footer class="flex flex-col space-y-2">
-					<Button href={post.slug} class="transition duration-300 ease-in-out hover:scale-95">
-						Read <Arrow class="ml-2 h-4 w-4" />
-					</Button>
-					<p class="text-sm text-slate-500">{post.date}</p>
-				</Card.Footer>
-			</Card.Root>
-		{/each}
+	<div class="mb-6">
+		<SearchBar onSearch={handleSearch} />
 	</div>
+
+	{#if filteredPosts.length === 0}
+		<p class="pt-[20vh] text-center text-slate-500">No results found</p>
+	{:else}
+		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{#each filteredPosts as post}
+				<Card.Root class="relative flex w-full flex-col overflow-hidden">
+					<div class="relative">
+						<img
+							src={post.banner}
+							alt="Banner"
+							class="aspect-h-1 w-full bg-slate-300 object-cover dark:bg-slate-900"
+						/>
+						{#if post.interactive}
+							<div class="absolute left-2 top-2">
+								<Button
+									size="icon"
+									variant="outline"
+									class="h-8 w-8 rounded-full opacity-50 transition duration-300 ease-in-out hover:opacity-100"
+									title="Interactive"
+								>
+									<Sparkles class="h-4 w-4" />
+								</Button>
+							</div>
+						{/if}
+					</div>
+					<Card.Header>
+						<Card.Title>{post.title}</Card.Title>
+						<Card.Description>{post.description}</Card.Description>
+					</Card.Header>
+					<Card.Content class="flex-grow" />
+					<Card.Footer class="flex flex-col space-y-2">
+						<Button href={post.slug} class="transition duration-300 ease-in-out hover:scale-95">
+							Read <Arrow class="ml-2 h-4 w-4" />
+						</Button>
+						<p class="text-sm text-slate-500">{post.date}</p>
+					</Card.Footer>
+				</Card.Root>
+			{/each}
+		</div>
+	{/if}
 </div>

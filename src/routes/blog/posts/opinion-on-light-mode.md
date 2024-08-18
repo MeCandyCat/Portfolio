@@ -2,7 +2,7 @@
 title: I hate Light mode
 date: '2024-05-16'
 description: you should too.
-banner: /banners/light-mode.png
+banner: /banners/light-mode-blog.png
 published: true
 interactive: false
 ---
