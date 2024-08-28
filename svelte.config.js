@@ -17,6 +17,11 @@ const config = {
 		paths: {
 			base: ''
 		}
+	},
+	vite: {
+		build: {
+			chunkSizeWarningLimit: 1000
+		}
 	}
 };
 

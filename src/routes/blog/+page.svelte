@@ -1,38 +1,19 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import type { PageData } from './$types';
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
-	import SearchBar from '$lib/components/searchBar.svelte';
+	import Search from '$lib/components/searchBar.svelte';
 	import Arrow from 'lucide-svelte/icons/arrow-right';
 	import Sparkles from 'lucide-svelte/icons/sparkles';
 
-	interface Post {
-		title: string;
-		date: string;
-		description: string;
-		banner: string;
-		published: boolean;
-		interactive: boolean;
-		slug: string;
-	}
+	export let data: PageData;
 
-	let allPosts: Post[] = [];
-	let filteredPosts: Post[] = [];
-
-	onMount(async () => {
-		try {
-			const response = await fetch('/api/posts');
-			allPosts = await response.json();
-			filteredPosts = allPosts;
-		} catch (error) {
-			console.error('Error fetching posts:', error);
-		}
-	});
+	let filteredPosts = data.posts;
 
 	function handleSearch(query: string) {
 		const lowercaseQuery = query.toLowerCase();
-		filteredPosts = allPosts.filter(
+		filteredPosts = data.posts.filter(
 			(post) =>
 				post.title.toLowerCase().includes(lowercaseQuery) ||
 				post.description.toLowerCase().includes(lowercaseQuery)
@@ -54,7 +35,7 @@
 
 <div class="mx-auto max-w-screen-lg p-4 sm:p-8">
 	<div class="mb-6">
-		<SearchBar onSearch={handleSearch} />
+		<Search onSearch={handleSearch} />
 	</div>
 
 	{#if filteredPosts.length === 0}
@@ -92,7 +73,10 @@
 					</Card.Header>
 					<Card.Content class="flex-grow" />
 					<Card.Footer class="flex flex-col space-y-2">
-						<Button href={post.slug} class="transition duration-300 ease-in-out hover:scale-95">
+						<Button
+							href="blog/{post.slug}"
+							class="transition duration-300 ease-in-out hover:scale-95"
+						>
 							Read <Arrow class="ml-2 h-4 w-4" />
 						</Button>
 						<p class="text-sm text-slate-500">{post.date}</p>

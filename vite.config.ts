@@ -13,5 +13,8 @@ export default defineConfig({
 		fs: {
 			allow: ['.']
 		}
+	},
+	build: {
+		chunkSizeWarningLimit: 1000
 	}
 });
