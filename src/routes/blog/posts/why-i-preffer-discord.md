@@ -1,14 +1,27 @@
 ---
-title: Why I preffer Discord
-date: '2024-05-14'
-description: Why discord is the best tool for collaboration.
+title: Why I Prefer Discord
+date: '2024-09-05'
+description: Why Discord is the best tool for collaboration.
 banner: /banners/discord-blog.png
 published: true
-interactive: false
+interactive: true
 ---
 
 <script>
-    import Heading from '$lib/components/ui/blog/heading.svelte';
+    import DiscordEvent from '$lib/components/discordEvent.svelte';
+    import { Input } from '$lib/components/ui/input';
+    import { Button } from '$lib/components/ui/button';
+    import { Label } from '$lib/components/ui/label/';
+
+    import Eye from 'lucide-svelte/icons/eye';
+    
+    let serverInvite = "axgQZ8NY9N";
+    let eventId = "1141360540736827623";
+    let updateComponent = false;
+
+    function updateEvent() {
+        updateComponent = true;
+    }
 </script>
 
 In the expansive realm of social media platforms, Discord emerges as a standout choice for those entrenched in the world of gaming and digital communities. As an avid user myself, I've found several compelling reasons why Discord surpasses other social media alternatives.
@@ -33,4 +46,42 @@ Unlike traditional social media, Discord caters specifically to the needs of gam
 
 Beyond gaming, Discord hosts a diverse array of communities catering to virtually every interest imaginable. Whether you're into music, art, technology, or niche hobbies, you're likely to find a vibrant Discord server dedicated to your passion. This diversity enriches the platform, offering users opportunities to connect with like-minded individuals beyond the gaming sphere.
 
-In conclusion, Discord's supremacy among social media platforms for gamers is not merely by chance but by design. Its emphasis on seamless content sharing, efficient communication, developer-friendly features, and diverse community building renders it the preferred choice for those seeking an immersive and tailored online experience. For me and many others entrenched in the gaming world, Discord has become an indispensable virtual home—a testament to its unique value within the digital landscape.
+Powerful Event Management with Discord Servers
+One of Discord's standout features is its robust event management system, which is seamlessly integrated into Discord servers. Discord servers serve as the backbone of communities on the platform, providing a centralized space for members to interact, share content, and organize activities.
+Discord's event feature allows server administrators and designated members to create and manage events directly within the server. These events can range from gaming tournaments and watch parties to study sessions and community meetings. The event system provides a convenient way to:
+
+Schedule and announce upcoming activities
+Set reminders for participants
+Manage RSVPs and attendance
+Provide event-specific voice channels
+Share important information and updates
+
+This feature has become invaluable for community building, as it helps maintain engagement and encourages regular interaction among members. Whether you're running a small gaming group or a large online community, Discord's event management tools make it easy to keep everyone informed and involved.
+
+Here's an example of how a Discord event can be displayed. You can update the server invite and event ID to see different events:
+
+<div class="not-prose">
+    <div class="grid grid-cols-2 gap-4 pb-4">
+    <div>
+        <Label for="server-invite">Server Invite</Label>
+        <Input bind:value={serverInvite} placeholder="Enter server invite" id="server-invite" />
+    </div>
+    <div>
+        <Label for="event-id">Event ID</Label>
+        <Input bind:value={eventId} placeholder="Enter event ID" id="event=id" />
+    </div>
+    </div>
+    <div class="flex justify-center pb-4">
+        <Button on:click={updateEvent}>
+            <Eye class="w-4 h-4 mr-2" /> Update
+        </Button>
+    </div>
+{#if updateComponent}
+    <DiscordEvent serverInvite={serverInvite} eventId={eventId} />
+{:else}
+    <DiscordEvent serverInvite="axgQZ8NY9N" eventId="1141360540736827623" />
+{/if}
+</div>
+In this interactive example, you can enter a different server invite and event ID, then click the "Update Event" button to display the new event information.
+
+In conclusion, Discord's supremacy among social media platforms for gamers is not merely by chance but by design. Its emphasis on seamless content sharing, efficient communication, developer-friendly features, diverse community building, and powerful event management renders it the preferred choice for those seeking an immersive and tailored online experience. For me and many others entrenched in the gaming world and beyond, Discord has become an indispensable virtual home—a testament to its unique value within the digital landscape.

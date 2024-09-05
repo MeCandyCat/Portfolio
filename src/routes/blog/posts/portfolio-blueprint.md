@@ -1,6 +1,6 @@
 ---
 title: Blueprint of Magic
-date: '2024-06-27'
+date: '2024-09-05'
 description: Behind the scenes of this site.
 banner: /banners/blueprint-blog.png
 published: true
@@ -17,6 +17,7 @@ interactive: true
     import Profile from '$lib/components/pfp.svelte';
     import Project from '$lib/components/project.svelte';
     import Tool from '$lib/components/tool.svelte';
+    import DiscordEvent from '$lib/components/discordEvent.svelte';
 
     import Sun from 'lucide-svelte/icons/sun';
     import Moon from 'lucide-svelte/icons/moon';
@@ -29,6 +30,9 @@ interactive: true
     let tempRepoName = 'Portfolio';
     let username = 'MeCandyCat';
     let repoName = 'Portfolio';
+    let serverInvite = "axgQZ8NY9N";
+    let eventId = "1141360540736827623";
+    let updateComponent = false;
 
     function handleClick() {
         username = tempUsername;
@@ -61,6 +65,10 @@ interactive: true
             default:
                 return ' font-bold uppercase text-gray-500';
         }
+    }
+
+    function updateEvent() {
+        updateComponent = true;
     }
 </script>
 
@@ -249,6 +257,33 @@ And I made a API to give the blog page details. The details are added in the top
 Additionally I have made this site to be able to be searchable. This process is called Site mapping. By providing the search engines the map of the page [(example here)](/sitemap.xml).
 
 Site mapping is essential for SEO as it creates a structured outline of the website's content and hierarchy. This helps search engines crawl and index the site efficiently, leading to improved visibility and organic search rankings.
+
+### Discord Event Card
+I stumbled upon Discord's event tab one day and wondered if I could display these Discord stats on a website. Initially, it seemed complicated, requiring authentication to get event details. However, while inspecting the API, I discovered a workaround using Discord's more efficient internal API.
+Implementing the card took hours of fine-tuning, but the result was worth it. Although it didn't initially have a clear purpose in my portfolio, I realized it was a perfect addition to this blog about Discord and the blueprint of this site. You can interact with the component below to see different Discord events.
+
+<div class="not-prose">
+    <div class="grid grid-cols-2 gap-4 pb-4">
+    <div>
+        <Label for="server-invite">Server Invite</Label>
+        <Input bind:value={serverInvite} placeholder="Enter server invite" id="server-invite" />
+    </div>
+    <div>
+        <Label for="event-id">Event ID</Label>
+        <Input bind:value={eventId} placeholder="Enter event ID" id="event-id" />
+    </div>
+    </div>
+    <div class="flex justify-center pb-4">
+        <Button on:click={updateEvent}>
+            <Eye class="w-4 h-4 mr-2" /> Update
+        </Button>
+    </div>
+{#if updateComponent}
+    <DiscordEvent serverInvite={serverInvite} eventId={eventId} />
+{:else}
+    <DiscordEvent serverInvite="axgQZ8NY9N" eventId="1141360540736827623" />
+{/if}
+</div>
 
 ### Conclusion
 
