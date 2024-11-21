@@ -64,16 +64,12 @@
 				subscribers. Total
 				<span id="totalViewCount" class="font-semibold text-sky-500">{totalViewCount}</span>
 				views.<br />
-				<span class="text-slate-500">Currently inactive.</span>
+				<span class="text-slate-500">Minecraft Youtuber.</span>
 			</p>
 
 			<div class="z-10 mt-4 flex md:mt-6">
-				<Button
-					href="https://www.youtube.com/@candycatmc"
-					target="_blank"
-					class="transition duration-300 ease-in-out hover:scale-95"
-				>
-					<Play class="mr-2 h-4 w-4" /> YouTube
+				<Button href="/channelytics" class="transition duration-300 ease-in-out hover:scale-95">
+					<Play class="mr-2 h-4 w-4" />Channelytics
 				</Button>
 			</div>
 		</div>
