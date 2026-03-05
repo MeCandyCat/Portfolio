@@ -59,8 +59,7 @@ interface UserCosmetics {
 	avatarUrl: string | null;
 	avatarDecorationUrl: string | null;
 	nameplateUrl: string | null;
-	nameplatePalette:  string | null;
-
+	nameplatePalette: string | null;
 }
 
 async function checkPresence(): Promise<Presence> {
@@ -79,9 +78,7 @@ async function checkPresence(): Promise<Presence> {
 				customStatus = {
 					text: customAct.state ?? null,
 					emojiName: emoji?.name ?? null,
-					emojiUrl: emoji?.id
-						? `${CDN}/emojis/${emoji.id}.${emoji.animated ? 'gif' : 'png'}`
-						: null
+					emojiUrl: emoji?.id ? `${CDN}/emojis/${emoji.id}.${emoji.animated ? 'gif' : 'png'}` : null
 				};
 			}
 
@@ -96,9 +93,7 @@ async function checkPresence(): Promise<Presence> {
 							artist: act.state ?? 'Unknown',
 							album: act.assets?.largeText ?? 'Unknown',
 							albumArtUrl: act.assets?.largeImageURL() ?? null,
-							trackUrl: act.syncId
-								? `https://open.spotify.com/track/${act.syncId}`
-								: null,
+							trackUrl: act.syncId ? `https://open.spotify.com/track/${act.syncId}` : null,
 							startedAt: act.timestamps?.start?.getTime() ?? null,
 							endsAt: act.timestamps?.end?.getTime() ?? null
 						};

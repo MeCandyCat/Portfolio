@@ -11,7 +11,6 @@ interactive: false
 
 One day, I decided to practice my coding skills by building a chat app. Now, most sensible developers would start with a traditional backend and database. But where's the fun in that? Clearly, I'm not most developers—I'm the kind of developer who looks at conventional wisdom and says, "Hold my energy drink."
 
-
 > Very secure <br />
 > — Sun Tzu
 
