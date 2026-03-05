@@ -1,4 +1,4 @@
-import { env } from '$env/dynamic/public';
+import { env } from '$env/dynamic/private';
 
 interface ChannelInfo {
 	title: string;
@@ -118,7 +118,7 @@ export const load = async ({ url }): Promise<PageData> => {
 	try {
 		const urlParams = new URLSearchParams(url.search);
 		const channelId = urlParams.get('channelId') || 'UC1kedgM-bFz56ph6J7GTkbA';
-		const API_KEY = process.env.VITE_YOUTUBE_API_KEY;
+		const API_KEY = env.YOUTUBE_API_KEY; // Changed to use private env variable without VITE_ prefix
 
 		// Fetch channel info
 		const channelResponse = await fetch(

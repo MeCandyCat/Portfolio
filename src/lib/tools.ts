@@ -6,10 +6,16 @@ export default [
 		description: 'A professional image editing software.'
 	},
 	{
-		name: 'Adobe Premiere',
+		name: 'Adobe Premiere Pro',
 		icon: '/icons/PremierePro.svg',
 		badgeText: 'App',
 		description: 'A professional video editing software.'
+	},
+	{
+		name: 'Adobe After Effects',
+		icon: '/icons/AfterEffects.svg',
+		badgeText: 'App',
+		description: 'Digital visual effects, motion graphics, and compositing application.'
 	},
 	{
 		name: 'Filmora',
