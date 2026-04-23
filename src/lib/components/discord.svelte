@@ -40,7 +40,8 @@
 		lavender: '#b8a0f4',
 		ember: '#f4803a',
 		arctic: '#a0d4f4',
-		violet: '#8F00FF'
+		violet: '#8F00FF',
+		cobalt: '#0047AB'
 		// fallback handled below
 	};
 
@@ -145,8 +146,8 @@
 				<div class="relative">
 					<Profile Image1="profile/discord.png" Image2="profile/discord.gif" customStyle="z-0" />
 					<img
-						src="https://cdn.discordapp.com/avatar-decoration-presets/a_a87e3efa4de2956331831681231ce63b.png?size=128&passthrough=true"
-						alt="Decoration"
+						src={avatarDecorationUrl}
+						alt=""
 						class="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 scale-[112%] transform"
 						draggable="false"
 					/>
@@ -156,8 +157,8 @@
 				</div>
 			</div>
 
-			<div class="z-10 grid grid-cols-8 place-items-center">
-				<h5 class="col-span-4 mb-1 text-xl font-bold text-gray-900 dark:text-white">Candy Cat</h5>
+			<div class="z-10 grid grid-cols-10 place-items-center">
+				<h5 class="col-span-5 mb-1 text-xl font-bold text-gray-900 dark:text-white">Candy Cat</h5>
 				<Tooltip.Root>
 					<Tooltip.Trigger>
 						<img
@@ -187,6 +188,16 @@
 						/>
 					</Tooltip.Trigger>
 					<Tooltip.Content><p>Completed a Quest</p></Tooltip.Content>
+				</Tooltip.Root>
+				<Tooltip.Root>
+					<Tooltip.Trigger>
+						<img
+							src="https://cdn.discordapp.com/badge-icons/ca105ad9cfc8580c765101d17bbb2323.png"
+							class="w-5"
+							alt="Last Medows Online"
+						/>
+					</Tooltip.Trigger>
+					<Tooltip.Content><p>Last Medows Online</p></Tooltip.Content>
 				</Tooltip.Root>
 				<Tooltip.Root>
 					<Tooltip.Trigger>
